@@ -6,6 +6,7 @@ namespace AksjeApp1.Models
         public Aksje()
         {
             string navn = "hei";
+            string navn = "hei";
         }
     }
 }
