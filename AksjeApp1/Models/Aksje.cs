@@ -5,7 +5,7 @@ namespace AksjeApp1.Models
     {
         public Aksje()
         {
-            test test test
+            
         }
     }
 }
