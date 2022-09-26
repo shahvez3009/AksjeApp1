@@ -1,2 +1,2 @@
 # AksjeApp1
-Vi skal lage en akse webapplikasjon
+Vi skal lage en aksje webapplikasjon
