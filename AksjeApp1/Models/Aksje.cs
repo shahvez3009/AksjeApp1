@@ -5,7 +5,7 @@ namespace AksjeApp1.Models
     {
         public Aksje()
         {
-           //HEI
+           //HEI OG HALLO
         }
     }
 }
