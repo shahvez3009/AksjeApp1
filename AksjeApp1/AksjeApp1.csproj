@@ -9,5 +9,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\" />
   </ItemGroup>
 </Project>
