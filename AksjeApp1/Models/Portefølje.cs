@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace AksjeApp1.Models
 {
     public class Portefølje
     {
-        public Portefølje()
-        {
-        }
+        public int Antall { get; set; }
+        public int Sum { get; set; }
+        public virtual Kunde Kunde { get; set; }
+        public virtual List<Ordre> Ordre { get; set; }
     }
 }
 

@@ -3,10 +3,12 @@ namespace AksjeApp1.Models
 {
     public class Aksje
     {
-        public Aksje()
-        {
-           //HEI OG HALLO
-        }
+        public int ID { get; set; }
+        public string Navn { get; set; }
+        public int Pris { get; set; }
+        public int MaxAntall { get; set; }
+        public int AntallLedige { get; set; }
+        
     }
 }
 
