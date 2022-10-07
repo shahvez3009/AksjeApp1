@@ -8,10 +8,12 @@
     <None Remove="Models\" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Microsoft.EntityFrameworkCore.Proxies" />
+    <None Remove="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\css\" />
