@@ -12,11 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\css\" />
     <Folder Include="Controllers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\css\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
