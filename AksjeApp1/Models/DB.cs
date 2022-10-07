@@ -13,6 +13,14 @@ namespace AksjeApp1.Models
         public virtual DbSet<Kunde> Kunde { get; set; }
         public virtual DbSet<Portefølje> Portefølje { get; set; }
         public virtual DbSet<Ordre> Ordre { get; set; }
+
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        // må importere pakken Microsoft.EntityFrameworkCore.Proxies
+        // og legge til"viritual" på de attriuttene som ønskes å lastes automatisk (LazyLoading)
+        optionsBuilder.UseLazyLoadingProxies();
+    }
     }
 
 }
