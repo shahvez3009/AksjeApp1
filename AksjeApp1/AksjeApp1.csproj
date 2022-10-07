@@ -14,10 +14,16 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\Style\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Style\" />
+    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>
