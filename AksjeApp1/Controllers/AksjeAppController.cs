@@ -24,10 +24,6 @@ namespace AksjeApp1.Controllers
             //Dropper Id siden det er autoinkrement. Tror det skal funke
             nyOrdreRad.Antall = innOrdre.Antall;
             nyOrdreRad.OrdrePris = _db.Aksje.Pris * innOrdre.Antall;
-
-
-            
-
         }
         */
     }
