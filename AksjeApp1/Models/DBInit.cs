@@ -12,6 +12,7 @@ namespace AksjeApp1.Models
             {
                 var db = serviceScope.ServiceProvider.GetService<DB>();
 
+                
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
             }
