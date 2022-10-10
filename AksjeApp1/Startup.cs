@@ -29,7 +29,7 @@ namespace AksjeApp1
             services.AddControllers().AddNewtonsoftJson(options =>
                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddDbContext<DB>(options => options.UseSqlite("Data Source=Ordre.db"));
+            services.AddDbContext<DB>(options => options.UseSqlite("Data Source=AksjeApp.db"));
 
         }
 

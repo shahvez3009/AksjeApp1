@@ -6,15 +6,18 @@ using TwelveDataSharp.Library.ResponseModels;
 
 
 
+﻿using System.Threading.Tasks;
+using AksjeApp1.Controllers;
+using AksjeApp1.Models;
 
 namespace AksjeApp1.Controllers
 {
-    public class AksjeAppContoller
+    public class AksjeAppController
     {
         private readonly DB _db;
 
         //Konstuktør
-        public AksjeAppContoller(AksjeAppContoller db)
+        public AksjeAppController(AksjeAppController db)
         {
             _db = db;
         }
@@ -22,17 +25,15 @@ namespace AksjeApp1.Controllers
 
    
         //Lagrer kjøp 
-        public async Task<bool> Kjøp(Ordre innOrdre)
+        /*
+         * public async Task<bool> Kjøp(Ordre innOrdre)
         {
             var nyOrdreRad = new Ordre();
 
             //Dropper Id siden det er autoinkrement. Tror det skal funke
             nyOrdreRad.Antall = innOrdre.Antall;
             nyOrdreRad.OrdrePris = _db.Aksje.Pris * innOrdre.Antall;
-
-
-            
-
         }
+        */
     }
 }

@@ -1,65 +1,39 @@
 ﻿<!DOCTYPE html>
-<html style="margin: 0; padding: 0;">
+<html>
 <head>
     <meta charset="utf-8" />
     <title>JustInvest</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        html {
-            height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-        }
-        /* fixed and fluid only on sm and up */
-        @media (min-width: 768px) {
-            .left {
-                position: fixed;
-            }
-
-            .fixed {
-                min-height: 100vh;
-                min-width: 280px;
-                max-width: 280px
-            }
-
-            .col .fluid {
-                min-height: 100vh;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="Images/Group 28.png" />
 </head>
 <body>
-
-    <div class="container-fluid h-100">
-        <div class="row">
-            
-            <div class="fixed d-flex bg-dark left">
-                <ul class="nav flex-column flex-nowrap justify-content-center text-center">
-                    <li class="nav-item">
-                        <img src="justinvest.png" alt="JustInvest logo" width="50%"/>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="buy.html">Buy Stocks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">View your Portfolio</a>
-                    </li>
-                </ul>
+    <main>
+        <section class="left-bar">
+            <div class="left-container">
+                <div class="profile">
+                    <img src="Images/Group 28.png" />
+                </div>
+                </div>
+            <div class="left-container">
+                <p class="left-bar-item line">Home</p>
+                <p class="left-bar-item line">Buy</p>
+                <p class="left-bar-item line">Portfolio</p>
             </div>
-            
-            <div class="fixed invisible"></div>
-            <div class="col d-flex flex-column">
-            <h1>Main</h1>
-
-            </div>
-        </div>
-    </div>
-    
+            <div class="left-container">
+                <div class="profile">
+                    <img id="profile_img" src="Images/Ellipse 3.png" alt="profile_image" />
+                    <p>Kanye West</p>
+                </div>
+                </div>
+        </section>
+        <section class="right-bar">
+            <div class="dashboard"></div>
+        </section>
+    </main>
 </body>
 </html>
