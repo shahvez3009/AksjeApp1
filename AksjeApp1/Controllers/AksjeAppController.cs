@@ -1,20 +1,23 @@
-﻿using AksjeApp1.Models;
+﻿using System.Threading.Tasks;
+using AksjeApp1.Controllers;
+using AksjeApp1.Models;
 
 namespace AksjeApp1.Controllers
 {
-    public class AksjeAppContoller
+    public class AksjeAppController
     {
         private readonly DB _db;
 
         //Konstuktør
-        public AksjeAppContoller(AksjeAppContoller db)
+        public AksjeAppController(AksjeAppController db)
         {
             _db = db;
         }
 
 
         //Lagrer kjøp 
-        public async Task<bool> Kjøp(Ordre innOrdre)
+        /*
+         * public async Task<bool> Kjøp(Ordre innOrdre)
         {
             var nyOrdreRad = new Ordre();
 
@@ -26,5 +29,6 @@ namespace AksjeApp1.Controllers
             
 
         }
+        */
     }
 }

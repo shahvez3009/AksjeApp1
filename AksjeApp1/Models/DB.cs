@@ -1,4 +1,5 @@
 ﻿using System;
+using AksjeApp1.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 namespace AksjeApp1.Models
@@ -11,6 +12,7 @@ namespace AksjeApp1.Models
         }
         public virtual DbSet<Aksje> Aksje { get; set; }
         public virtual DbSet<Kunde> Kunde { get; set; }
+        public virtual DbSet<Poststed> Poststed { get; set; }
         public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Ordre> Ordre { get; set; }
 
@@ -21,6 +23,11 @@ namespace AksjeApp1.Models
         // og legge til"viritual" på de attriuttene som ønskes å lastes automatisk (LazyLoading)
         optionsBuilder.UseLazyLoadingProxies();
     }
+
+        public static implicit operator DB(AksjeAppController v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
