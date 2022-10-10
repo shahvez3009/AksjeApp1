@@ -11,7 +11,7 @@ namespace AksjeApp1.Models
         }
         public virtual DbSet<Aksje> Aksje { get; set; }
         public virtual DbSet<Kunde> Kunde { get; set; }
-        public virtual DbSet<Portefølje> Portefølje { get; set; }
+        public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Ordre> Ordre { get; set; }
 
 
