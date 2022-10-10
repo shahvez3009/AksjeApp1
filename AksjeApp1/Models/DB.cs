@@ -23,11 +23,6 @@ namespace AksjeApp1.Models
         // og legge til"viritual" på de attriuttene som ønskes å lastes automatisk (LazyLoading)
         optionsBuilder.UseLazyLoadingProxies();
     }
-
-        public static implicit operator DB(AksjeAppController v)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
