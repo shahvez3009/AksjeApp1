@@ -1,4 +1,11 @@
-﻿using AksjeApp1.Models;
+﻿using System.Net.Http;
+using AksjeApp1.Models;
+using TwelveDataSharp;
+using TwelveDataSharp.Interfaces;
+using TwelveDataSharp.Library.ResponseModels;
+
+
+
 
 namespace AksjeApp1.Controllers
 {
@@ -13,6 +20,7 @@ namespace AksjeApp1.Controllers
         }
 
 
+   
         //Lagrer kjøp 
         public async Task<bool> Kjøp(Ordre innOrdre)
         {
