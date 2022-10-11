@@ -9,20 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="Images/Group 28.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="Images/logoX.png" />
 </head>
 <body>
     <main>
         <section class="left-bar">
             <div class="left-container">
                 <div class="profile">
-                    <img src="Images/Group 28.png" />
+                    <img src="Images/logoX.png" />
                 </div>
                 </div>
             <div class="left-container">
                 <p class="left-bar-item line">Home</p>
-                <p class="left-bar-item line">Buy</p>
-                <p class="left-bar-item line">Portfolio</p>
+                <p class="left-bar-item line"><a href="portfolio.html">Portfolio</a></p>
             </div>
             <div class="left-container">
                 <div class="profile">
@@ -33,7 +32,15 @@
         </section>
         <section class="right-bar">
             <div class="dashboard"></div>
-            <div id="aksjer"></div>
+            <div class="stock-wrapper">
+                <div id="aksjer"></div>
+                <div id="purchase-container">
+                    <input type="number" />
+                    <input type="number" />
+                    <input type="number" />
+                    <button id="buy" type="submit">Buy</button>
+                </div>
+            </div>
         </section>
     </main>
 </body>

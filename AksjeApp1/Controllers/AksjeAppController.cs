@@ -36,7 +36,7 @@ namespace AksjeApp1.Controllers
 
 
             nyOrdreRad.OrdreSum = _db.Aksje.Pris * innOrdre.Antall; //Må ta _db.Aksje.
-                                                                    //Pris siden prisen skal ikke komme inn som iput via
+                                                                    //Pris siden prisen skal ikke komme inn som input via
                                                                     //"kjøpskjema", prisen ligger i databasen
 
             //(ALT UNDER MÅ I EN IF SETNING SOM SKJEKKER OM KUNDEN HAR NOK PENGER)
