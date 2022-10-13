@@ -128,7 +128,6 @@ input {
 
 .profile {
     display: flex; 
-    padding-left: 2vh; 
     color:  white;
     align-items: center;
     justify-content: space-around; 
@@ -146,12 +145,15 @@ input {
     width: 100%;
     border-radius: 10px;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    background-image: url("https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F635944%2Fgettyimages-165649635.jpg&w=700&op=resize")
 }
 
+/*
 .dashboard:hover {
-    box-shadow: 5px 5px 5px 5px lightgrey;
+box-shadow: 5px 5px 5px 5px lightgrey;
 }
+
+*/
+
 
 
 /* - - - - - - - - - - - - - - - - - - PORTFOLIO PAGE STYLING - - - - - - - - - - - - - - - - - - - - - - - -  */

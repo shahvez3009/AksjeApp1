@@ -39,7 +39,7 @@ namespace AksjeApp1.Controllers
                                                                     //Pris siden prisen skal ikke komme inn som input via
                                                                     //"kjøpskjema", prisen ligger i databasen
 
-            //(ALT UNDER MÅ I EN IF SETNING SOM SKJEKKER OM KUNDEN HAR NOK PENGER)
+            //(ALT UNDER MÅ I EN IF SETNING SOM SJEKKER OM KUNDEN HAR NOK PENGER)
 
 
             nyOrdreRad.Antall = innOrdre.Antall;//Dropper Id siden det er autoinkrement.
