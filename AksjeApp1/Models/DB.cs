@@ -1,6 +1,10 @@
 ﻿using System;
 using AksjeApp1.Controllers;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+
+
 
 namespace AksjeApp1.Models
 {
@@ -9,12 +13,16 @@ namespace AksjeApp1.Models
         public DB(DbContextOptions<DB> options) : base(options)
         {
             Database.EnsureCreated();
+
         }
         public virtual DbSet<Aksje> Aksje { get; set; }
         public virtual DbSet<Kunde> Kunde { get; set; }
         public virtual DbSet<Poststed> Poststed { get; set; }
         public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Ordre> Ordre { get; set; }
+
+       
+
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

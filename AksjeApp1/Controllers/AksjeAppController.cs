@@ -1,10 +1,8 @@
-using System.Net.Http;
+﻿using System.Net.Http;
 using AksjeApp1.Models;
 using TwelveDataSharp;
 using TwelveDataSharp.Interfaces;
 using TwelveDataSharp.Library.ResponseModels;
-
-
 using System.Threading.Tasks;
 using AksjeApp1.Controllers;
 using System.Linq;
@@ -15,6 +13,7 @@ namespace AksjeApp1.Controllers
 {
     public class AksjeAppController
     {
+        private const string V = "google";
         private readonly DB _db;
 
         //Konstuktør
@@ -26,11 +25,11 @@ namespace AksjeApp1.Controllers
         /*
    
         //Lagrer kjøp 
-       
-        public async Task<bool> Kjøp(Ordre innOrdre)
-        {
-            //Først må vi lage en ny rad i ordretabellen for å lagre ordren som har blitt gjort
-            var nyOrdreRad = new Ordre();
+
+        /* public async Task<bool> Kjøp(Ordre innOrdre)
+         {
+             //Først må vi lage en ny rad i ordretabellen for å lagre ordren som har blitt gjort
+             var nyOrdreRad = new Ordre();
 
 
 
@@ -41,25 +40,12 @@ namespace AksjeApp1.Controllers
             //(ALT UNDER MÅ I EN IF SETNING SOM SJEKKER OM KUNDEN HAR NOK PENGER)
 
 
-            nyOrdreRad.Antall = innOrdre.Antall;//Dropper Id siden det er autoinkrement.
-                                                //Tror det skal funke
+             nyOrdreRad.Antall = innOrdre.Antall;//Dropper Id siden det er autoinkrement.
+                                                 //Tror det skal funke
 
-            //Er 1 eller 2 riktig?
-            nyOrdreRad.Kunde = innOrdre.Kunde; //(1)
-            nyOrdreRad.Kunde.Id = innOrdre.Kunde.Id; //(2)
-            
-
-            nyOrdreRad.Aksje = innOrdre.Aksje; //(1) ?
-            nyOrdreRad.Aksje.ID = innOrdre.Aksje.ID; //(2) ?
-
-            nyOrdreRad.Portfolio = innOrdre.Portfolio; //(1)
-            nyOrdreRad.Portfolio.Id = innOrdre.Portfolio.Id; //(2)
-
-            //Endrer saldoen til kunden
-            nyOrdreRad.Kunde.Saldo = innOrdre.Kunde.Saldo - innOrdre.OrdreSum;
-            
-
-            //Vi må også legge inn info i portofolio (husk også endre saldo til kunden i portofolio)
+             //Er 1 eller 2 riktig?
+             nyOrdreRad.Kunde = innOrdre.Kunde; //(1)
+             nyOrdreRad.Kunde.Id = innOrdre.Kunde.Id; //(2)
 
 
         }
