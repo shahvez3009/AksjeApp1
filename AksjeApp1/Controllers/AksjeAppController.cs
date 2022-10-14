@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System;
 using AksjeApp1.Models;
 using TwelveDataSharp;
 using TwelveDataSharp.Interfaces;
@@ -21,6 +22,7 @@ namespace AksjeApp1.Controllers
         {
             _db = db;
         }
+        
 
         /*
    
@@ -69,18 +71,17 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
-        /*
+        
         public async Task<List<Portfolio>> HentPortfolio()
         {
             try
             {
                 List<Portfolio> helePortfolio = await _db.Portfolio.Select(k => new Portfolio
                 {
-                    Id = k.Id,
-                    Navn = k.Navn,
-                    Pris = k.Pris,
-                    AntallLedige = k.AntallLedige,
-                    MaxAntall = k.MaxAntall
+                    Id = k.Kunde.Id,
+                    Navn = k.Aksje.Navn,
+                    Antall = k.Antall,
+                    Sum = k.Antall*k.Aksje.Pris
                 }).ToListAsync();
                 return helePortfolio;
             }
@@ -89,7 +90,7 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
-        */
+        
 
     }
 }

@@ -15,8 +15,8 @@ function formaterAksjer(aksjer) {
         "</tr>";
     for (let aksje of aksjer) {
         ut += "<tr>" +
-            "<td>" + aksje.navn + "</td>" +
-            "<td>" + aksje.pris + "</td>" +
+            "<td>" + aksje.Navn + "</td>" +
+            "<td>" + aksje.Pris + "</td>" +
             "<td>" + aksje.MaxAntall + "</td>" +
             "<td>" + aksje.AntallLedige + "</td>" +
             "</tr>";
