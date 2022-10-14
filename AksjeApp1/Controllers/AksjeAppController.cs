@@ -24,6 +24,42 @@ namespace AksjeApp1.Controllers
         }
         
 
+        public async bool Task kjop(Ordre innOrdre)
+        {
+            try
+            {
+                //Dette er for å finne navnet fra aksjeID
+                Aksje enAksje = _db.Aksje.Find(innOrdre.Aksje.Id);
+
+                Ordre enOrdre = new Ordre();
+                enOrdre.Antall = innOrdre.Antall;
+                enOrdre.OrdreSum = innOrdre.Antall * enAksje.Pris;
+
+                //Lagre kjøpte aksjer i portfolio
+                var sjekkAksje = _db.Portfolio.Find(innOrdre.AksjeId);
+
+                if (sjekkAksje == null)
+                {
+                    Potfolio enPortfolio = new Portfolio
+                    {
+                        KundeId = 1,
+                        AksjeId = innOrdre.Aksje.Id,
+                        Antall = innOrdre.Antall,
+                        Sum = enOrdre.OrdreSum,
+
+
+                    }
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+
+
         /*
    
         //Lagrer kjøp 
