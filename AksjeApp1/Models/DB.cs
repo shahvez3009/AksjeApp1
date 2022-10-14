@@ -2,9 +2,6 @@
 using AksjeApp1.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
-using RestSharp;
-
-
 
 namespace AksjeApp1.Models
 {
