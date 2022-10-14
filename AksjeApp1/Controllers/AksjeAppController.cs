@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using AksjeApp1.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace AksjeApp1.Controllers
 {
@@ -84,7 +85,10 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
-
+        public async Task<List<Portfolio>> HentPortfolio()
+        {
+           
+        }
 
     }
 }
