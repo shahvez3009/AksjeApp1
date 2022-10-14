@@ -8,7 +8,6 @@ namespace AksjeApp1.Models
         public int OrdreSum { get; set; }
         public virtual Kunde Kunde { get; set; }
         public virtual Aksje Aksje { get; set; }
-        public int Pris { get; set; }
         public virtual Portfolio Portfolio { get; set; }
 
     }

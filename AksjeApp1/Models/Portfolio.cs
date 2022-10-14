@@ -11,7 +11,6 @@ namespace AksjeApp1.Models
         public int Sum { get; set; }
         public virtual Aksje Aksje { get; set; }
         public virtual Kunde Kunde { get; set; }
-        public virtual List<Ordre> Ordre { get; set; }
     }
 }
 

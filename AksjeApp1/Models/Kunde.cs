@@ -12,7 +12,6 @@ namespace AksjeApp1.Models
         public string Mail { get; set; }
         public string Telefonnr { get; set; }
         public virtual Poststed Poststed { get; set; }
-        public virtual List<Ordre> Ordre { get; set; }
     }
 }
 

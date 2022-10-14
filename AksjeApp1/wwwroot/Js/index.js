@@ -3,7 +3,7 @@
 });
 
 function hentAlleAksjer() {
-    $.get("aksje/hentAksjer", function (aksjer) {
+    $.get("Aksje/HentAksjer", function (aksjer) {
         formaterAksjer(aksjer);
     });
 }
