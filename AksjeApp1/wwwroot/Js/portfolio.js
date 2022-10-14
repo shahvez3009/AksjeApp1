@@ -1,11 +1,16 @@
-﻿using System;
-namespace AksjeApp1.wwwroot.Js
+﻿$(function () {
+    hentHelePortfolio();
+});
+
+function hentHelePortfolio()
 {
-	public class portfolio
-	{
-		public portfolio()
-		{
-		}
-	}
+    $.get("aksje/hentPortfolio", function (portfolio) {
+        formaterPortfolio(portfolio);
+    });
 }
 
+/*function formaterPortfolio(portfolio)
+{
+   
+}
+*/

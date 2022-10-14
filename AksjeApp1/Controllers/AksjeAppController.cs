@@ -7,9 +7,7 @@ using TwelveDataSharp.Library.ResponseModels;
 
 using System.Threading.Tasks;
 using AksjeApp1.Controllers;
-using System.Threading.Tasks;
 using System.Linq;
-using AksjeApp1.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -25,7 +23,7 @@ namespace AksjeApp1.Controllers
             _db = db;
         }
 
-
+        /*
    
         //Lagrer kjøp 
        
@@ -65,7 +63,7 @@ namespace AksjeApp1.Controllers
 
 
         }
-
+        */
         public async Task<List<Aksje>> HentAksjer()
         {
             try
@@ -85,10 +83,27 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
+        /*
         public async Task<List<Portfolio>> HentPortfolio()
         {
-           
+            try
+            {
+                List<Portfolio> helePortfolio = await _db.Portfolio.Select(k => new Portfolio
+                {
+                    Id = k.Id,
+                    Navn = k.Navn,
+                    Pris = k.Pris,
+                    AntallLedige = k.AntallLedige,
+                    MaxAntall = k.MaxAntall
+                }).ToListAsync();
+                return helePortfolio;
+            }
+            catch
+            {
+                return null;
+            }
         }
+        */
 
     }
 }

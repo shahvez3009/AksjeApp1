@@ -11,6 +11,8 @@
     <None Remove="Controllers\" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <None Remove="TwelveDataSharp" />
+    <None Remove="AksjeApp.db-shm" />
+    <None Remove="AksjeApp.db-shm" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

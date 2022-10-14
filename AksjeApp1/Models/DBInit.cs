@@ -15,6 +15,14 @@ namespace AksjeApp1.Models
                 
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
+
+                var microsoft = new Aksje { Navn = "Microsoft", Pris = 300, AntallLedige = 5531, MaxAntall = 6000 };
+                var apple = new Aksje { Navn = "Apple", Pris = 350, AntallLedige = 6531, MaxAntall = 7000 };
+
+                db.Aksje.Add(microsoft);
+                db.Aksje.Add(apple);
+
+                db.SaveChanges();
             }
         }
     }
