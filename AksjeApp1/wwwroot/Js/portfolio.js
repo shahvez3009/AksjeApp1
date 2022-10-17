@@ -4,7 +4,7 @@
 
 function hentHelePortfolio()
 {
-    $.get("aksje/HentPortfolio", function (portfolio) {
+    $.get("Aksje/HentPortfolio", function (portfolio) {
         formaterPortfolio(portfolio);
     });
 }

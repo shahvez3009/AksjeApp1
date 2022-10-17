@@ -24,7 +24,7 @@ namespace AksjeApp1.Controllers
         }
         
 
-        public async bool Task kjop(Ordre innOrdre)
+        /*public async bool Task kjop(Ordre innOrdre)
         {
             try
             {
@@ -57,14 +57,14 @@ namespace AksjeApp1.Controllers
                 return false;
             }
         }
-        
+        */
 
 
         /*
    
         //Lagrer kjøp 
 
-        /* public async Task<bool> Kjøp(Ordre innOrdre)
+        public async Task<bool> Kjøp(Ordre innOrdre)
          {
              //Først må vi lage en ny rad i ordretabellen for å lagre ordren som har blitt gjort
              var nyOrdreRad = new Ordre();
@@ -92,13 +92,13 @@ namespace AksjeApp1.Controllers
         {
             try
             {
-                List<Aksje> alleAksjer = await _db.Aksje.Select(k => new Aksje
+                List<Aksje> alleAksjer = await _db.Aksje.Select(a => new Aksje
                 {
-                    Id = k.Id,
-                    Navn = k.Navn,
-                    Pris = k.Pris,
-                    AntallLedige = k.AntallLedige,
-                    MaxAntall = k.MaxAntall
+                    Id = a.Id,
+                    Navn = a.Navn,
+                    Pris = a.Pris,
+                    AntallLedige = a.AntallLedige,
+                    MaxAntall = a.MaxAntall
                 }).ToListAsync();
                 return alleAksjer;
             }
@@ -107,7 +107,8 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
-        
+
+        /*
         public async Task<List<Portfolio>> HentPortfolio()
         {
             try
@@ -126,6 +127,7 @@ namespace AksjeApp1.Controllers
                 return null;
             }
         }
+        */
         
 
     }

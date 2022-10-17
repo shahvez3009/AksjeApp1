@@ -18,10 +18,6 @@ namespace AksjeApp1.Models
         public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<Ordre> Ordre { get; set; }
 
-       
-
-
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // må importere pakken Microsoft.EntityFrameworkCore.Proxies
