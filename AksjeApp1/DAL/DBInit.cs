@@ -10,7 +10,7 @@ namespace AksjeApp1.Models
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var db = serviceScope.ServiceProvider.GetService<DB>();
+                var context = serviceScope.ServiceProvider.GetService<AksjeContext>();
 
                 /*var client = new RestClient("https://api.polygon.io/v1/open-close/AAPL/2020-10-14?adjusted=true&apiKey=ZEiSOvpQCiinfLiWOiJhnyeJmGdrIUpF");
                 var request = new RestRequest("", (Method)DataFormat.Json);
@@ -20,16 +20,16 @@ namespace AksjeApp1.Models
                 */
 
 
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
 
                 var microsoft = new Aksje { Navn = "Microsoft", Pris = 300, AntallLedige = 5531, MaxAntall = 6000 };
                 var apple = new Aksje { Navn = "Apple", Pris = 350, AntallLedige = 6531, MaxAntall = 7000 };
 
-                db.Aksje.Add(microsoft);
-                db.Aksje.Add(apple);
+                context.Aksje.Add(microsoft);
+                context.Aksje.Add(apple);
 
-                db.SaveChanges();
+                context.SaveChanges();
             }
         }
     }
