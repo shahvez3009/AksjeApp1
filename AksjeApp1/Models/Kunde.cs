@@ -11,7 +11,6 @@ namespace AksjeApp1.Models
         public int Saldo { get; set; }
         public string Mail { get; set; }
         public string Telefonnr { get; set; }
-        public virtual Poststed Poststed { get; set; }
     }
 }
 

@@ -15,6 +15,30 @@ namespace AksjeApp1.Models
         public int MaxAntall { get; set; }
         public int AntallLedige { get; set; }
 
+        virtual public Portfolios Portfolio { get; set; }
+
+    }
+
+    public class Kunder
+    {
+        public int Id { get; set; }
+        public string Fornavn { get; set; }
+        public string Etternavn { get; set; }
+        public int Saldo { get; set; }
+        public string Mail { get; set; }
+        public string Telefonnr { get; set; }
+    }
+
+    public class Portfolios
+    {
+        public int Id { get; set; }
+        public string Navn { get; set; }
+        public int Pris { get; set; }
+        public int Antall { get; set; }
+        public int Sum { get; set; }
+
+        virtual public Aksjer Aksje { get; set; }
+        virtual public Kunder Kunde { get; set; }
     }
 
     public class AksjeContext : DbContext
@@ -30,7 +54,6 @@ namespace AksjeApp1.Models
 
         public DbSet<Aksje> Aksje { get; set; }
         public DbSet<Kunde> Kunde { get; set; }
-        public DbSet<Poststed> Poststed { get; set; }
         public DbSet<Portfolio> Portfolio { get; set; }
         public DbSet<Ordre> Ordre { get; set; }
 

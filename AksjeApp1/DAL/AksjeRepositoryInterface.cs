@@ -10,7 +10,7 @@ namespace AksjeApp1.DAL
         //Task<bool> Kjop(Ordre innOrdre);
         //Task<bool> Selg(Ordre innOrdre);
         Task<List<Aksje>> HentAksjene();
-        //Task<List<Portfolio>> HentPortfolio();
+        Task<List<Portfolio>> HentPortfolio();
     }
 }
 

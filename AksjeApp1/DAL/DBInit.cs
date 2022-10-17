@@ -18,7 +18,7 @@ namespace AksjeApp1.Models
                 Console.WriteLine(response.Content);
                 Console.Read();
                 */
-
+                var enes = new Kunde { }
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();

@@ -7,8 +7,10 @@ namespace AksjeApp1.Models
     {
         public int Id { get; set; }
         public string Navn { get; set; }
+        public int Pris { get; set; }
         public int Antall { get; set; }
         public int Sum { get; set; }
+
         public virtual Aksje Aksje { get; set; }
         public virtual Kunde Kunde { get; set; }
     }

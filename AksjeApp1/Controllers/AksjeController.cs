@@ -40,11 +40,9 @@ namespace AksjeApp1.Controllers
             return await _db.HentAksjene();
         }
 
-        /*
         public async Task<List<Portfolio>> HentPortfolio()
         {
             return await _db.HentPortfolio();
         }
-        */
     }
 }

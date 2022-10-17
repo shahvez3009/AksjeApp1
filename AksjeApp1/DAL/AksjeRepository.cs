@@ -100,17 +100,17 @@ namespace AksjeApp1.DAL
             }
         }
 
-        /*
         public async Task<List<Portfolio>> HentPortfolio()
         {
             try
             {
-                List<Portfolio> helePortfolio = await _db.Portfolio.Select(k => new Portfolio
+                List<Portfolio> helePortfolio = await _db.Portfolio.Select(p => new Portfolio
                 {
-                    Id = k.Kunde.Id,
-                    Navn = k.Aksje.Navn,
-                    Antall = k.Antall,
-                    Sum = k.Antall*k.Aksje.Pris
+                    Id = p.Id,
+                    Navn = p.Aksje.Navn,
+                    Pris = p.Aksje.Pris,
+                    Antall = p.Antall,
+                    Sum = p.Pris * p.Antall
                 }).ToListAsync();
                 return helePortfolio;
             }
@@ -119,8 +119,7 @@ namespace AksjeApp1.DAL
                 return null;
             }
         }
-        */
-
+        
     }
 }
 
