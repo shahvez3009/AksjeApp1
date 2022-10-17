@@ -80,6 +80,85 @@ namespace AksjeApp1.DAL
 
         }
         */
+
+
+        public bool kjop(int kundeID, int aksjeID, int antall)
+        {
+            Aksje finnAksje = _db.Aksje.Find(aksjeID);
+            Kunde finnKunde = _db.Kunde.Find(kundeID);
+            int belop = antall * finnAksje.Pris;
+
+            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Kunde.Id == finnKunde.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+            if (belop > finnKunde.Saldo)
+            {
+                return false;
+            }
+            if (portfolios.Length == 1)
+            {
+
+                    Portfolio eksisterendeAksje = portfolios[0];
+                    eksisterendeAksje.Sum += belop;
+                    eksisterendeAksje.Antall += antall;
+                    finnKunde.Saldo -= belop;
+                finnAksje.AntallLedige -= antall;
+
+                    _db.SaveChanges();
+                    return true;
+
+            }
+            else
+            {
+                    Portfolio nyPortfolio = new Portfolio();
+                    nyPortfolio.Aksje = finnAksje;
+                    nyPortfolio.Antall = antall;
+                    nyPortfolio.Kunde = finnKunde;
+                    nyPortfolio.Navn = finnKunde.Fornavn;
+                    nyPortfolio.Sum = belop;
+                finnAksje.AntallLedige -= antall;
+                _db.Portfolio.Add(nyPortfolio);
+                    _db.SaveChanges();
+                    return true;
+                
+            }
+           
+        }
+        public bool selg(int kundeID, int aksjeID, int antall)
+        {
+            Aksje finnAksje = _db.Aksje.Find(aksjeID);
+            Kunde finnKunde = _db.Kunde.Find(kundeID);
+            int belop = antall * finnAksje.Pris;
+            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Kunde.Id == finnKunde.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+
+            if (portfolios.Length == 1)
+            {
+                Portfolio eksisterendeAksje = portfolios[0];
+                if (eksisterendeAksje.Antall > antall)
+                {
+                    eksisterendeAksje.Sum -= belop;
+                    eksisterendeAksje.Antall -= antall;
+                    finnKunde.Saldo += belop;
+                    finnAksje.AntallLedige += antall;
+                    _db.SaveChanges();
+                    return true;
+                }
+                else if (eksisterendeAksje.Antall == antall)
+                {
+                    finnKunde.Saldo += belop;
+                    finnAksje.AntallLedige += antall;
+                    _db.Remove(eksisterendeAksje.Id);
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+             return false;
+        }
+
+
+
+
+
+
+
         public async Task<List<Aksje>> HentAksjene()
         {
             try
@@ -99,6 +178,7 @@ namespace AksjeApp1.DAL
                 return null;
             }
         }
+
 
         /*
         public async Task<List<Portfolio>> HentPortfolio()
