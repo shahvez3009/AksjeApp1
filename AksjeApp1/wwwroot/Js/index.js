@@ -19,11 +19,12 @@ function formaterAksjer(aksjer) {
         "<th>Navn</th><th>Pris</th><th>AntallLedige</th><th>MaxAntall</th>" +
         "</tr>";
     for (let aksje of aksjer) {
+        console.log("6");
         ut += "<tr>" +
-            "<td>" + aksje.Navn + "</td>" +
-            "<td>" + aksje.Pris + "</td>" +
-            "<td>" + aksje.MaxAntall + "</td>" +
-            "<td>" + aksje.AntallLedige + "</td>" +
+            "<td>" + aksje.navn + "</td>" +
+            "<td>" + aksje.pris + "</td>" +
+            "<td>" + aksje.maxAntall + "</td>" +
+            "<td>" + aksje.antallLedige + "</td>" +
             "</tr>";
     }
     ut += "</table>";

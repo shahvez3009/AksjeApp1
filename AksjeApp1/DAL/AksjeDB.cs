@@ -6,6 +6,17 @@ using Newtonsoft.Json.Linq;
 
 namespace AksjeApp1.Models
 {
+
+    public class Aksjer
+    {
+        public int Id { get; set; }
+        public string Navn { get; set; }
+        public int Pris { get; set; }
+        public int MaxAntall { get; set; }
+        public int AntallLedige { get; set; }
+
+    }
+
     public class AksjeContext : DbContext
     {
         public AksjeContext(DbContextOptions<AksjeContext> options)
