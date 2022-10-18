@@ -19,10 +19,12 @@ function formaterPortfolio(portfolios) {
             "<td>" + portfolio.navn + "</td>" +
             "<td>" + portfolio.pris + "</td>" +
             "<td>" + portfolio.antall + "</td>" +
-            "<td>" + portfolio.sum + "</td> "+
+            "<td>" + portfolio.sum + "</td> " +
             "</tr>";
     }
     ut += "</table>";
     $("#portfolio").html(ut);
 }
+
+
 

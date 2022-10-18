@@ -45,14 +45,6 @@ button {
     display: flex;
 }
 
-#aksjer {
-    height: 90%;
-    width: 50px;
-    border: 1px solid black;
-    flex-basis: 50%;
-    margin: 2vh;
-    border-radius: 10px; 
-}
 
 #purchase-container {
     height: 90%;
@@ -141,22 +133,19 @@ input {
 .dashboard {
     display: flex;
     justify-content: center;
-    height: 50%;
+    max-height: 50%;
     width: 100%;
     border-radius: 10px;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-/*
-.dashboard:hover {
-box-shadow: 5px 5px 5px 5px lightgrey;
-}
-
-*/
 
 
 
-/* - - - - - - - - - - - - - - - - - - PORTFOLIO PAGE STYLING - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+
+
+
 
 
 
