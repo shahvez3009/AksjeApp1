@@ -4,12 +4,12 @@
 
 function hentHelePortfolio()
 {
-    $.get("Aksje/HentPortfolio", function (portfolio) {
-        formaterPortfolio(portfolio);
+    $.get("Aksje/HentPortfolio", function (portfolios) {
+        formaterPortfolio(portfolios);
     });
 }
 
-function formaterPortfolio(portfolio) {
+function formaterPortfolio(portfolios) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
         "<th>Navn</th><th>Pris per Aksje</th><th>Antall Aksjer</th><th>Sum</th>" +
@@ -19,7 +19,7 @@ function formaterPortfolio(portfolio) {
             "<td>" + portfolio.navn + "</td>" +
             "<td>" + portfolio.pris + "</td>" +
             "<td>" + portfolio.antall + "</td>" +
-            "<td>" + portfolio.sum + "</td> +
+            "<td>" + portfolio.sum + "</td> "+
             "</tr>";
     }
     ut += "</table>";
