@@ -14,9 +14,6 @@ namespace AksjeApp1.Models
         public int Pris { get; set; }
         public int MaxAntall { get; set; }
         public int AntallLedige { get; set; }
-
-        virtual public Portfolios Portfolio { get; set; }
-
     }
 
     public class Brukere

@@ -18,16 +18,28 @@ namespace AksjeApp1.Models
                 Console.WriteLine(response.Content);
                 Console.Read();
                 */
-                var enes = new Bruker { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 5000, Mail = "enesergin1204@hotmail.com", Mobilnummer = 90057976};
-
+                
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
+                //Bruker
+                var enes = new Bruker { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 5000, Mail = "enesergin1204@hotmail.com", Mobilnummer = 90057976 };
+
+                //Aksje
                 var microsoft = new Aksje { Navn = "Microsoft", Pris = 300, AntallLedige = 5531, MaxAntall = 6000 };
                 var apple = new Aksje { Navn = "Apple", Pris = 350, AntallLedige = 6531, MaxAntall = 7000 };
 
+                //Portfolio
+                var portfolio1 = new Portfolio { Navn = microsoft.Navn, Pris = microsoft.Pris, Antall = 5, Sum = microsoft.Pris * 5, Bruker = enes, Aksje = microsoft};
+                var portfolio2 = new Portfolio { Navn = apple.Navn, Pris = apple.Pris, Antall = 5, Sum = apple.Pris * 5, Bruker = enes, Aksje = apple };
+
+                context.Bruker.Add(enes);
+
                 context.Aksje.Add(microsoft);
                 context.Aksje.Add(apple);
+
+                context.Portfolio.Add(portfolio1);
+                //context.Portfolio.Add(portfolio2);
 
                 context.SaveChanges();
             }

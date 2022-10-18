@@ -24,11 +24,12 @@ namespace AksjeApp1.Controllers
             _db = db;
         }
 
-        /*public async Task<bool> Kjop(Ordre innOrdre)
+        public bool Kjop(int brukerID, int aksjeID, int antall)
         {
-            return await _db.Kjop(innOrdre);
+            return _db.Kjop(brukerID, aksjeID, antall);
         }
 
+        /*
         public async Task<bool> Selg(Ordre innOrdre)
         {
             return await _db.Selg(innOrdre);

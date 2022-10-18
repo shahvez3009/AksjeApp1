@@ -82,7 +82,7 @@ namespace AksjeApp1.DAL
         */
 
 
-        public bool kjop(int brukerID, int aksjeID, int antall)
+        public bool Kjop(int brukerID, int aksjeID, int antall)
         {
             Aksje finnAksje = _db.Aksje.Find(aksjeID);
             Bruker finnBruker = _db.Bruker.Find(brukerID);
@@ -122,7 +122,7 @@ namespace AksjeApp1.DAL
             }
            
         }
-        public bool selg(int brukerID, int aksjeID, int antall)
+        public bool Selg(int brukerID, int aksjeID, int antall)
         {
             Aksje finnAksje = _db.Aksje.Find(aksjeID);
             Bruker finnBruker = _db.Bruker.Find(brukerID);
