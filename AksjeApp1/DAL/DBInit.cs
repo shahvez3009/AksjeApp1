@@ -18,7 +18,7 @@ namespace AksjeApp1.Models
                 Console.WriteLine(response.Content);
                 Console.Read();
                 */
-                var enes = new Bruker { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 5000, Mail = "enesergin1204@hotmail.com", Mobilnummer = }
+                var enes = new Bruker { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 5000, Mail = "enesergin1204@hotmail.com", Mobilnummer = 90057976};
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();

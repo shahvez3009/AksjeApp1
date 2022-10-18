@@ -19,7 +19,7 @@ namespace AksjeApp1.Models
 
     }
 
-    public class Kunder
+    public class Brukere
     {
         public int Id { get; set; }
         public string Fornavn { get; set; }
@@ -38,7 +38,7 @@ namespace AksjeApp1.Models
         public int Sum { get; set; }
 
         virtual public Aksjer Aksje { get; set; }
-        virtual public Kunder Kunde { get; set; }
+        virtual public Brukere Bruker { get; set; }
     }
 
     public class AksjeContext : DbContext
@@ -53,7 +53,7 @@ namespace AksjeApp1.Models
         }
 
         public DbSet<Aksje> Aksje { get; set; }
-        public DbSet<Kunde> Kunde { get; set; }
+        public DbSet<Bruker> Bruker { get; set; }
         public DbSet<Portfolio> Portfolio { get; set; }
         public DbSet<Ordre> Ordre { get; set; }
 
