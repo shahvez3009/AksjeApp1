@@ -82,14 +82,14 @@ namespace AksjeApp1.DAL
         */
 
 
-        public bool kjop(int kundeID, int aksjeID, int antall)
+        public bool kjop(int brukerID, int aksjeID, int antall)
         {
             Aksje finnAksje = _db.Aksje.Find(aksjeID);
-            Kunde finnKunde = _db.Kunde.Find(kundeID);
+            Bruker finnBruker = _db.Bruker.Find(brukerID);
             int belop = antall * finnAksje.Pris;
 
-            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Kunde.Id == finnKunde.Id && p.Aksje.Id == finnAksje.Id).ToArray();
-            if (belop > finnKunde.Saldo)
+            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+            if (belop > finnBruker.Saldo)
             {
                 return false;
             }
@@ -99,7 +99,7 @@ namespace AksjeApp1.DAL
                     Portfolio eksisterendeAksje = portfolios[0];
                     eksisterendeAksje.Sum += belop;
                     eksisterendeAksje.Antall += antall;
-                    finnKunde.Saldo -= belop;
+                    finnBruker.Saldo -= belop;
                 finnAksje.AntallLedige -= antall;
 
                     _db.SaveChanges();
@@ -111,8 +111,8 @@ namespace AksjeApp1.DAL
                     Portfolio nyPortfolio = new Portfolio();
                     nyPortfolio.Aksje = finnAksje;
                     nyPortfolio.Antall = antall;
-                    nyPortfolio.Kunde = finnKunde;
-                    nyPortfolio.Navn = finnKunde.Fornavn;
+                    nyPortfolio.Bruker = finnBruker;
+                    nyPortfolio.Navn = finnBruker.Fornavn;
                     nyPortfolio.Sum = belop;
                 finnAksje.AntallLedige -= antall;
                 _db.Portfolio.Add(nyPortfolio);
@@ -122,12 +122,12 @@ namespace AksjeApp1.DAL
             }
            
         }
-        public bool selg(int kundeID, int aksjeID, int antall)
+        public bool selg(int brukerID, int aksjeID, int antall)
         {
             Aksje finnAksje = _db.Aksje.Find(aksjeID);
-            Kunde finnKunde = _db.Kunde.Find(kundeID);
+            Bruker finnBruker = _db.Bruker.Find(brukerID);
             int belop = antall * finnAksje.Pris;
-            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Kunde.Id == finnKunde.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+            Portfolio[] portfolios = _db.Portfolio.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
 
             if (portfolios.Length == 1)
             {
@@ -136,14 +136,14 @@ namespace AksjeApp1.DAL
                 {
                     eksisterendeAksje.Sum -= belop;
                     eksisterendeAksje.Antall -= antall;
-                    finnKunde.Saldo += belop;
+                    finnBruker.Saldo += belop;
                     finnAksje.AntallLedige += antall;
                     _db.SaveChanges();
                     return true;
                 }
                 else if (eksisterendeAksje.Antall == antall)
                 {
-                    finnKunde.Saldo += belop;
+                    finnBruker.Saldo += belop;
                     finnAksje.AntallLedige += antall;
                     _db.Remove(eksisterendeAksje.Id);
                     _db.SaveChanges();

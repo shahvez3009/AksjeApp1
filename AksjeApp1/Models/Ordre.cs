@@ -7,7 +7,7 @@ namespace AksjeApp1.Models
         public int Antall { get; set;}
         public int OrdreSum { get; set; }
 
-        public virtual Kunde Kunde { get; set; }
+        public virtual Bruker Bruker { get; set; }
         public virtual Aksje Aksje { get; set; }
     }
 }
