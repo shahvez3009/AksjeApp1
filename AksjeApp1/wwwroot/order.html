@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="left-container">
-                <p class="left-bar-item line">Home</p>
+                <p class="left-bar-item line"><i class="fa-thin fa-house"></i>Home</p>
                 <p class="left-bar-item line">
                     <a href="portfolio.html">Portfolio</a>
                 </p>
@@ -44,10 +44,20 @@
             </div>
         </section>
         <section class="right-bar">
-                <canvas class="dashboard"></canvas>
-                <div id="aksjer"></div>
+            <form>
+                <label for="name">Apple</label>
+                <input type="text" id="name" name="name" required
+                       minlength="4" maxlength="8" size="10" placeholder="amount"/>
+                <input type="text" id="name" name="name" required
+                       minlength="4" maxlength="8" size="10" placeholder="bla...">
+                <input type="text" id="name" name="name" required
+                       minlength="4" maxlength="8" size="10" placeholder="bla...">
+                <input type="text" id="name" name="name" required
+                       minlength="4" maxlength="8" size="10" placeholder="bla..."/>
+            </form>
+            <button id="buy-btn"class="order-btn">buy</button>
+            <button id="sell-btn"class="order-btn">sell</button>
         </section>
     </main>
-<script src="Js/chart.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ function hentHelePortfolio()
 function formaterPortfolio(portfolios) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Navn</th><th>Pris per Aksje</th><th>Antall Aksjer</th><th>Sum</th>" +
+        "<th>Stock name</th><th>Price per share</th><th>Amount of stocks</th><th>Sum</th>" +
         "</tr>";
     for (let portfolio of portfolios) {
         ut += "<tr>" +

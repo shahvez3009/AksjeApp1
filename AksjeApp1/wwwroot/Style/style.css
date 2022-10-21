@@ -18,7 +18,7 @@ section {
     height: 100vh; 
 }
 
-.left-bar, a, p {
+.left-bar a {
     height: 100%;
     flex-basis: 20%;
     color: white;
@@ -87,6 +87,7 @@ input {
     height: 33.3333%;
     justify-content: center;
     flex-direction: column;
+
 }
 
 
@@ -104,6 +105,7 @@ input {
 }
 
 
+
 .line {
     width: 0%;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -116,6 +118,7 @@ input {
     margin-left: 2vh;
     font: 30px bold;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .profile {
@@ -126,8 +129,8 @@ input {
 }
 
 #profile_img {
-    height: 80px;
-    width: 80px; 
+    height: 40px;
+    width: 40px; 
 }
 
 .dashboard {
@@ -138,12 +141,42 @@ input {
     border-radius: 10px;
 }
 
+/* Form Styling */
 
 
+label {
+    display: block;
+    font: 2rem 'Fira Sans', sans-serif;
+}
 
+input,
+label {
+    margin: 2vh;
+}
 
+input {
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 10px;
+}
 
+input:hover {
+ 
+    box-shadow: 5px 5px lightblue;
+}
 
+.order-btn {
+    margin: 2vh;
+    border: none;
+    color: white; 
+}
+
+#buy-btn {
+    background-color: lightgreen; 
+}
+
+#sell-btn {
+    background-color: lightcoral;
+}
 
 
 
