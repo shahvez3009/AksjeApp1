@@ -65,26 +65,25 @@
                         <h1>KJØP AKSJER</h1>
                     </div>
                     <div class="col">
-                        <p class="text-right">Harman Singh</p>
+                        <p class="text-right"> <i class="fa-solid fa-user"></i>Harman Singh</p>
                         <p class="text-right">(skal hentes) kr</p>
                     </div>
                 </div>
                     <div class="row">
                         <div class="col text-center">
                             <h2>Aksje.navn</h2>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Pris pr aksje: "A.pris"</li>
-                                <li class="list-group-item">Ledig aksjer: "55"</li>
-
+                            <ul class="list-group list-group-flush form">
+                                <li class="list-group-item form-item">Pris Per Aksje: "A.pris"</li>
+                                <li class="list-group-item form-item">Ledig aksjer: "55"</li>
                                 <!--Denn skal regnes ut-->
-                                <li class="list-group-item">Du har maksimum råd til: "15" av denne aksjen</li>
-                                <li class="list-group-item"></li>
+                                <li class="list-group-item form-item">Du har maksimum råd til: "15" av denne aksjen</li>
+                                <li class="list-group-item form-item"></li>
                             </ul>
                         </div>
                         <div class="col">
-                            <div class="form-group">
+                            <div class="form-group bekreft">
                                 <input type="text" id="antallAksjer" placeholder="Må være et helt tall"/>
-                                <label id="sumForKjop">sum for kjøp:</label>
+                                <label id="sumForKjop">Total sum for kjøp:</label>
                                 <input type="button" id="reg" value="Bekreft" onClick="denFunksjonenIJavaScriptSomKjøpeAksjer" class="btn btn-primary" />
                             </div>
                             <div id="feil" style="color: red"></div>

@@ -1,2 +1,25 @@
-﻿body {
+﻿* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+
+body {
+}
+
+
+.bekreft {
+    margin: 4rem; 
+}
+
+
+.form {
+    border: 1px solid lightgrey;
+    height: 50vh;
+    border-radius: 10px;
+}
+
+.form-item {
+    border: 1px solid black;
+    margin: 4vh; 
 }
