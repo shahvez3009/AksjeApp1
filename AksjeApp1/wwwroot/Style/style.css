@@ -170,6 +170,8 @@ input:hover {
     color: white; 
 }
 
+
+/*Harman skjønner finner ikke hvor buy-btn og sell-btn brukes*/
 #buy-btn {
     background-color: lightgreen; 
 }

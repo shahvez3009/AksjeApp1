@@ -11,7 +11,7 @@ function hentAlleAksjer() {
 function formaterAksjer(aksjer) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Stock Name</th><th>Price</th><th>Max Amount</th><th>Stocks Available</th><th></th><th></th>" +
+        "<th>Stock Name</th><th>Price</th><th>Max Amount</th><th>Available shares</th><th></th><th></th>" +
         "</tr>";
     for (let aksje of aksjer) {
         ut += "<tr>" +
