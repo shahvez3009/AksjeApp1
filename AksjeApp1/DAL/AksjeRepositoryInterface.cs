@@ -12,7 +12,7 @@ namespace AksjeApp1.DAL
         //Task<bool> Selg(Ordre innOrdre);
         Task<Bruker> HentEnBruker();
         Task<Aksje> HentEnAksje(int id);
-        Task<Portfolio> HentEtPortfolio();
+        //Task<Portfolio> HentEtPortfolio();
         Task<List<Aksje>> HentAksjene();
         Task<List<Portfolio>> HentPortfolio();
     }

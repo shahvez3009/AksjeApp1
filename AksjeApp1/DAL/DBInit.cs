@@ -39,7 +39,7 @@ namespace AksjeApp1.Models
                 context.Aksjer.Add(apple);
 
                 context.Portfolios.Add(portfolio1);
-                //context.Portfolio.Add(portfolio2);
+                context.Portfolios.Add(portfolio2);
 
                 context.SaveChanges();
             }

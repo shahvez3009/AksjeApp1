@@ -117,11 +117,10 @@ namespace AksjeApp1.DAL
             };
             return hentetAksje;
         }
-
+        /*
         public async Task<Portfolio> HentEtPortfolio()
         {
-            Portfolios etPortfolio = await _db.Portfolios.FindAsync(1);
-          
+            Portfolios etPortfolio = 
             var hentetPortfolio = new Portfolio()
             {
                 Id = etPortfolio.Id,
@@ -129,9 +128,11 @@ namespace AksjeApp1.DAL
                 Pris = etPortfolio.Pris,
                 Antall = etPortfolio.Antall,
                 Sum = etPortfolio.Sum
+
             };
             return hentetPortfolio;
         }
+        */
 
         public async Task<List<Aksje>> HentAksjene()
         {
