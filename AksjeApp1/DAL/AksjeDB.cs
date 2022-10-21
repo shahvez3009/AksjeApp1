@@ -34,8 +34,18 @@ namespace AksjeApp1.Models
         public int Antall { get; set; }
         public int Sum { get; set; }
 
-        virtual public Aksjer Aksje { get; set; }
-        virtual public Brukere Bruker { get; set; }
+        public virtual Aksjer Aksje { get; set; }
+        public virtual Brukere Bruker { get; set; }
+    }
+
+    public class Ordrer
+    {
+        public int Id { get; set; }
+        public int Antall { get; set; }
+        public int OrdreSum { get; set; }
+
+        public virtual Aksjer Aksjer { get; set; }
+        public virtual Brukere Brukere { get; set; }
     }
 
     public class AksjeContext : DbContext
@@ -49,10 +59,10 @@ namespace AksjeApp1.Models
             Database.EnsureCreated();
         }
 
-        public DbSet<Aksje> Aksje { get; set; }
-        public DbSet<Bruker> Bruker { get; set; }
-        public DbSet<Portfolio> Portfolio { get; set; }
-        public DbSet<Ordre> Ordre { get; set; }
+        public DbSet<Aksjer> Aksjer { get; set; }
+        public DbSet<Brukere> Brukere { get; set; }
+        public DbSet<Portfolios> Portfolios { get; set; }
+        public DbSet<Ordrer> Ordrer { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
