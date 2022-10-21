@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using AksjeApp1.DAL;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace AksjeApp1.Controllers
 {
@@ -35,6 +36,16 @@ namespace AksjeApp1.Controllers
             return await _db.Selg(innOrdre);
         }
         */
+
+        public async Task<Aksje> HentEnAksje(int id)
+        {
+            return await _db.HentEnAksje(id);
+        }
+
+        public async Task<Bruker> HentEnBruker()
+        {
+            return await _db.HentEnBruker();
+        }
 
         public async Task<List<Aksje>> HentAksjene()
         {

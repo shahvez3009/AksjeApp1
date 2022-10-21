@@ -109,9 +109,9 @@ namespace AksjeApp1.DAL
             return hentetAksje;
         }
 
-        public async Task<Bruker> HentEnBruker(int id)
+        public async Task<Bruker> HentEnBruker()
         {
-            Brukere enBruker = await _db.Brukere.FindAsync(id);
+            Brukere enBruker = await _db.Brukere.FindAsync(1);
             var hentetBruker = new Bruker()
             {
                 Id = enBruker.Id,
@@ -123,6 +123,8 @@ namespace AksjeApp1.DAL
             };
             return hentetBruker;
         }
+
+        
 
         public async Task<List<Aksje>> HentAksjene()
         {
