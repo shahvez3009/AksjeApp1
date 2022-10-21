@@ -26,11 +26,12 @@
 
     $.get(urlPortfolio, function (portfolio) {
         $("#portfolioId").val(portfolio.id);
-        $("#portfolioNavn").val(portfolio.navn);
-        $("#portfolioPris").val(portfolio.pris);
         $("#portfolioAntall").val(portfolio.antall);
-        $("#portfolioSum").val(portfolio.sum);
-        console.log("Portfolio - " + portfolio.id + portfolio.navn + portfolio.pris + portfolio.antall + portfolio.sum + portfolio.aksje + portfolio.bruker);
+        $("#portfolioAksjeId").val(portfolio.aksjeId);
+        $("#portfolioAksjeNavn").val(portfolio.aksjeNavn);
+        $("#portfolioAksjePris").val(portfolio.aksjePris);
+        $("#portfolioBrukerId").val(portfolio.brukerId);
+        console.log("Portfolio - " + portfolio.id + portfolio.antall + portfolio.aksjeId + portfolio.aksjeNavn + portfolio.aksjePris + portfolio.brukerId);
     });
 
 });
