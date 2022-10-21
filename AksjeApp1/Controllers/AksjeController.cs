@@ -25,17 +25,18 @@ namespace AksjeApp1.Controllers
             _db = db;
         }
 
+        /*
         public bool Kjop(Portfolio innPortfolio)
         {
             return _db.Kjop(innPortfolio);
         }
 
-        /*
+        
         public async Task<bool> Selg(Ordre innOrdre)
         {
             return await _db.Selg(innOrdre);
         }
-        */
+        
 
         public async Task<Bruker> HentEnBruker()
         {

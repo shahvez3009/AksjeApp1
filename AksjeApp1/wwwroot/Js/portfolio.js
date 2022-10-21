@@ -16,10 +16,10 @@ function formaterPortfolio(portfolios) {
         "</tr>";
     for (let portfolio of portfolios) {
         ut += "<tr>" +
-            "<td>" + portfolio.navn + "</td>" +
-            "<td>" + portfolio.pris + "</td>" +
+            "<td>" + portfolio.aksjeNavn + "</td>" +
+            "<td>" + portfolio.aksjePris + "</td>" +
             "<td>" + portfolio.antall + "</td>" +
-            "<td>" + portfolio.sum + "</td> " +
+            "<td>" + 200 + "</td> " +
             "<td> <a class='btn btn-success'  href='kjop.html?id=" + portfolio.id + "'>Kjøp mer</a></td>" +
             "<td> <a class='btn btn-danger'  href='selg.html?id=" + portfolio.id + "'>Selg</a></td>" +
             "</tr>";

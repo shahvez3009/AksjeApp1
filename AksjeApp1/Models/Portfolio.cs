@@ -6,13 +6,16 @@ namespace AksjeApp1.Models
     public class Portfolio
     {
         public int Id { get; set; }
-        public string Navn { get; set; }
-        public int Pris { get; set; }
         public int Antall { get; set; }
-        public int Sum { get; set; }
 
-        public virtual Aksje Aksje { get; set; }
-        public virtual Bruker Bruker { get; set; }
+        //Info fra Aksje
+        public int AksjeId { get; set; }
+        public string AksjeNavn { get; set; }
+        public int AksjePris { get; set; }
+
+        //Info fra Bruker
+        public int BrukerId { get; set; }
+        
     }
 }
 
