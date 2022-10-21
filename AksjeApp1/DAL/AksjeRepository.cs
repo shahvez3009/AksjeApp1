@@ -17,6 +17,7 @@ namespace AksjeApp1.DAL
         {
             _db = db;
         }
+
         /*
         public bool Kjop(Portfolio innPortfolio)
         {
@@ -92,6 +93,7 @@ namespace AksjeApp1.DAL
             }
              return false;
         }
+        */
 
         public async Task<Bruker> HentEnBruker()
         {
@@ -121,22 +123,22 @@ namespace AksjeApp1.DAL
             };
             return hentetAksje;
         }
-        
-        public async Task<Portfolio> HentEtPortfolio()
-        {
-            Portfolios etPortfolio = 
-            var hentetPortfolio = new Portfolio()
-            {
-                Id = etPortfolio.Id,
-                Navn = etPortfolio.Navn,
-                Pris = etPortfolio.Pris,
-                Antall = etPortfolio.Antall,
-                Sum = etPortfolio.Sum
 
+        
+        public async Task<Portfolio> HentEtPortfolio(int id)
+        {
+            List<Portfolio> = etPortfolio = await _db.Portfolios.Where(p => p.Aksje.Id == id{ 
+               Id = etPortfolio.Id,
+               Antall = etPortfolio.Antall,
+               AksjeId = etPortfolio.Aksje.Id,
+               AksjeNavn = etPortfolio.Aksje.Navn,
+               AksjePris = etPortfolio.Aksje.Pris,
+               BrukerId = etPortfolio.Bruker.Id
             };
             return hentetPortfolio;
         }
-        */
+        
+        
 
         public async Task<List<Aksje>> HentAksjene()
         {

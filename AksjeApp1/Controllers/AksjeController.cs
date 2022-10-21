@@ -36,7 +36,7 @@ namespace AksjeApp1.Controllers
         {
             return await _db.Selg(innOrdre);
         }
-        
+        */
 
         public async Task<Bruker> HentEnBruker()
         {
@@ -47,12 +47,12 @@ namespace AksjeApp1.Controllers
         {
             return await _db.HentEnAksje(id);
         }
-        /*
-        public async Task<Portfolio> HentEtPortfolio()
+        
+        public async Task<Portfolio> HentEtPortfolio(int id)
         {
-            return await _db.HentEtPortfolio();
+            return await _db.HentEtPortfolio(id);
         }
-        */
+        
 
         public async Task<List<Aksje>> HentAksjene()
         {
