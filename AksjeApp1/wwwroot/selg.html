@@ -1,10 +1,121 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+    <title>JustInvest</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Js/kjop.js"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
+    <!--- Dette er tor sin bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="Style/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+          rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="Images/logoX.png" />
+</head>
+
+<body>
+    <main>
+        <section class="left-bar">
+            <div class="left-container">
+                <div class="profile">
+                    <img src="Images/logoX.png" />
+                </div>
+            </div>
+            <div class="left-container">
+                <p class="left-bar-item line">
+                    <a href="index.html">Home</a>
+                </p>
+                <p class="left-bar-item line">
+                    <a href="portfolio.html">Portfolio</a>
+                </p>
+            </div>
+            <div class="left-container">
+                <div class="profile">
+                    <img id="profile_img"
+                         src="Images/Ellipse 3.png"
+                         alt="profile_image" />
+                    <p>Kanye West</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="right-bar">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col text-center">
+                        <!--Denne skal være tom-->
+                    </div>
+
+
+                    <div class="col-6 text-center">
+                        <h1>SELG AKSJER</h1>
+                    </div>
+
+                    <div class="col">
+                        <p class="text-right">Harman Singh</p>
+                        <p class="text-right">(skal hentes) kr</p>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="row">
+
+
+                    <div class="col text-center">
+
+                        <h2>KUNDEINFO</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">A.navn</li>
+                            <li class="list-group-item">A.pris</li>
+                            <li class="list-group-item">Eide aksjer</li>
+                            <li class="list-group-item"></li>
+                        </ul>
+
+
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <h2>SKAL HENTE AKSJENAVN</h2>
+                            <input type="text" id="fornavn" />
+                            <input type="button" id="reg" value="Bekreft" onClick="denFunksjonenIJavaScriptSomKjøpeAksjer" class="btn btn-primary" />
+                        </div>
+
+
+                        <div id="feil" style="color: red"></div>
+                    </div>
+
+                </div>
+
+        </section>
+
+
+    </main>
 </body>
+
 </html>

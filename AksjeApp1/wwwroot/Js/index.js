@@ -19,8 +19,8 @@ function formaterAksjer(aksjer) {
             "<td>" + aksje.pris + "</td>" +
             "<td>" + aksje.maxAntall + "</td>" +
             "<td>" + aksje.antallLedige + "</td>" +
-            "<td> <a class='btn btn-secondary' href='portfolio.html?id=" + aksje.id + "'>Show Chart</a></td>" +
-            "<td> <a class='btn btn-success'  href='order.html?id=" + aksje.id + "'>Buy</a></td>" +
+            "<td> <a class='btn btn-secondary' " + aksje.id + "'>Show Chart</a></td>" +
+            "<td> <a class='btn btn-success'  href='kjop.html?id=" + aksje.id + "'>Buy</a></td>" +
             "</tr>";
     }
     ut += "</table>";
