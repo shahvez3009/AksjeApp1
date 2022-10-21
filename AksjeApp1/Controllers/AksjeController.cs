@@ -37,14 +37,19 @@ namespace AksjeApp1.Controllers
         }
         */
 
+        public async Task<Bruker> HentEnBruker()
+        {
+            return await _db.HentEnBruker();
+        }
+
         public async Task<Aksje> HentEnAksje(int id)
         {
             return await _db.HentEnAksje(id);
         }
 
-        public async Task<Bruker> HentEnBruker()
+        public async Task<Portfolio> HentEtPortfolio()
         {
-            return await _db.HentEnBruker();
+            return await _db.HentEtPortfolio();
         }
 
         public async Task<List<Aksje>> HentAksjene()
