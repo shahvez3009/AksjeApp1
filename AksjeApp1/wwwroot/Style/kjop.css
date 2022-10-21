@@ -19,7 +19,7 @@ body {
 }
 
 
-
+/*Boksene med pris, navn, etc..*/
 .form {
     border: 1px solid lightgrey;
     height: 50vh;
@@ -30,6 +30,8 @@ body {
    
 }
 
+
+/*Boksene med pris, navn, etc..*/
 .list-group-flush .list-group-item {
     margin: 4vh;
     border-top: 80px;
