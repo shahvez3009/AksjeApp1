@@ -18,13 +18,17 @@ namespace AksjeApp1.DAL
             _db = db;
         }
 
-        public bool Kjop(int brukerID, int aksjeID, int antall)
+        public bool Kjop(Portfolio innPortfolio)
         {
-            Aksjer finnAksje = _db.Aksjer.Find(aksjeID);
-            Brukere finnBruker = _db.Brukere.Find(brukerID);
-            int belop = antall * finnAksje.Pris;
+            var finnAksje = _db.Aksjer.Find(innPortfolio.Aksje);
+            Console.WriteLine(finnAksje);
+            Console.ReadLine();
+            var finnBruker = _db.Brukere.Find(innPortfolio.Bruker);
+            Console.WriteLine(finnBruker);
+            Console.ReadLine();
+            int belop = innPortfolio.Sum;
 
-            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == finnAksje.Id).ToArray();
             if (belop > finnBruker.Saldo)
             {
                 return false;
@@ -32,11 +36,11 @@ namespace AksjeApp1.DAL
             if (portfolioss.Length == 1)
             {
 
-                    Portfolios eksisterendeAksje = portfolioss[0];
+                    var eksisterendeAksje = portfolioss[0];
                     eksisterendeAksje.Sum += belop;
-                    eksisterendeAksje.Antall += antall;
+                    eksisterendeAksje.Antall += innPortfolio.Antall;
                     finnBruker.Saldo -= belop;
-                finnAksje.AntallLedige -= antall;
+                finnAksje.AntallLedige -= innPortfolio.Antall;
 
                     _db.SaveChanges();
                     return true;
@@ -44,13 +48,13 @@ namespace AksjeApp1.DAL
             }
             else
             {
-                    Portfolios nyPortfolio = new Portfolios();
+                    var nyPortfolio = new Portfolios();
                     nyPortfolio.Aksje = finnAksje;
-                    nyPortfolio.Antall = antall;
+                    nyPortfolio.Antall = innPortfolio.Antall;
                     nyPortfolio.Bruker = finnBruker;
                     nyPortfolio.Navn = finnBruker.Fornavn;
                     nyPortfolio.Sum = belop;
-                finnAksje.AntallLedige -= antall;
+                finnAksje.AntallLedige -= innPortfolio.Antall;
                 _db.Portfolios.Add(nyPortfolio);
                     _db.SaveChanges();
                     return true;

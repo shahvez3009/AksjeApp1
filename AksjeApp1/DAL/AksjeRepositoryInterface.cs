@@ -8,7 +8,7 @@ namespace AksjeApp1.DAL
 {
     public interface AksjeRepositoryInterface
     {
-        bool Kjop(int brukerID, int aksjeID, int antall);
+        bool Kjop(Portfolio innPortfolio);
         //Task<bool> Selg(Ordre innOrdre);
         Task<Aksje> HentEnAksje(int id);
         Task<Bruker> HentEnBruker();
