@@ -29,10 +29,7 @@ namespace AksjeApp1.Models
     public class Portfolios
     {
         public int Id { get; set; }
-        public string Navn { get; set; }
-        public int Pris { get; set; }
         public int Antall { get; set; }
-        public int Sum { get; set; }
 
         public virtual Aksjer Aksje { get; set; }
         public virtual Brukere Bruker { get; set; }

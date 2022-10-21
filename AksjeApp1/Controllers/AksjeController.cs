@@ -25,17 +25,18 @@ namespace AksjeApp1.Controllers
             _db = db;
         }
 
-        public bool Kjop(int brukerID, int aksjeID, int antall)
+        /*
+        public bool Kjop(Portfolio innPortfolio)
         {
-            return _db.Kjop(brukerID, aksjeID, antall);
+            return _db.Kjop(innPortfolio);
         }
 
-        /*
+        
         public async Task<bool> Selg(Ordre innOrdre)
         {
             return await _db.Selg(innOrdre);
         }
-        */
+        
 
         public async Task<Bruker> HentEnBruker()
         {
@@ -46,11 +47,12 @@ namespace AksjeApp1.Controllers
         {
             return await _db.HentEnAksje(id);
         }
-
+        /*
         public async Task<Portfolio> HentEtPortfolio()
         {
             return await _db.HentEtPortfolio();
         }
+        */
 
         public async Task<List<Aksje>> HentAksjene()
         {

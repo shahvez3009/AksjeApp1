@@ -27,19 +27,15 @@ namespace AksjeApp1.Models
 
                 //Aksje
                 var microsoft = new Aksjer { Navn = "Microsoft", Pris = 300, AntallLedige = 5531, MaxAntall = 6000 };
-                var apple = new Aksjer { Navn = "Apple", Pris = 350, AntallLedige = 6531, MaxAntall = 7000 };
 
                 //Portfolio
-                var portfolio1 = new Portfolios { Navn = microsoft.Navn, Pris = microsoft.Pris, Antall = 5, Sum = microsoft.Pris * 5, Bruker = enes, Aksje = microsoft};
-                var portfolio2 = new Portfolios { Navn = apple.Navn, Pris = apple.Pris, Antall = 5, Sum = apple.Pris * 5, Bruker = enes, Aksje = apple };
-
+                var portfolio = new Portfolios { Antall = 5, Aksje = microsoft, Bruker = enes};
+             
                 context.Brukere.Add(enes);
 
                 context.Aksjer.Add(microsoft);
-                context.Aksjer.Add(apple);
 
-                context.Portfolios.Add(portfolio1);
-                //context.Portfolio.Add(portfolio2);
+                context.Portfolios.Add(portfolio);
 
                 context.SaveChanges();
             }

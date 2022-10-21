@@ -24,3 +24,28 @@
     });
 
 });
+
+function kjopAksje() {
+    const portfolio = {
+        id: 5,
+        navn: "microsoft",
+        pris: 300,
+        antall: 5,
+        sum: 200,
+        aksje: 1,
+        bruker: 1,
+    }
+    console.log(portfolio.aksjeId, portfolio.pris, portfolio.antall, portfolio.navn, portfolio.bruker);
+
+    $.post("Aksje/Kjop", portfolio, function (OK) {
+        if (OK) {
+            window.location.href = 'index.html';
+           
+    }
+        else {
+            $("#feil").html("Feil i db - prøv igjen senere");
+        }
+    });
+}
+
+
