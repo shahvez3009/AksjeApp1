@@ -23,7 +23,7 @@ namespace AksjeApp1.Models
         public string Etternavn { get; set; }
         public int Saldo { get; set; }
         public string Mail { get; set; }
-        public string Telefonnr { get; set; }
+        public int Mobilnummer { get; set; }
     }
 
     public class Portfolios
