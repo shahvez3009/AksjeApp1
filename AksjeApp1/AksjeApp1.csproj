@@ -15,6 +15,7 @@
     <None Remove="AksjeApp.db-shm" />
     <None Remove="AksjeApp.db-shm" />
     <None Remove="DAL\" />
+    <None Remove="AksjeApp.db-wal" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

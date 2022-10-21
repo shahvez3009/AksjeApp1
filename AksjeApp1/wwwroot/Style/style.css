@@ -18,6 +18,10 @@ section {
     height: 100vh; 
 }
 
+
+
+/* Left side */
+
 .left-bar a {
     height: 100%;
     flex-basis: 20%;
@@ -26,11 +30,61 @@ section {
     text-decoration: none;
 }
 
-button {
-    height: 50px;
-    width: 100px;
-    border-radius: 10px;
+
+.left-container {
+    display: flex;
+    width: 100%;
+    color: white;
+    background-color: black;
+    height: 33.3333%;
+    justify-content: center;
+    flex-direction: column;
 }
+
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+
+.left-bar-item {
+    font: 20px bold;
+    padding-left: 4vh;
+    cursor: pointer;
+    margin: 2vh;
+}
+
+
+
+.line {
+    width: 0%;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-family: 'Roboto', sans-serif;
+}
+
+.line:hover {
+        width: 70%;
+        border-bottom: 1px solid white;
+        margin-left: 2vh;
+        font: 30px bold;
+        font-family: 'Roboto', sans-serif;
+}
+
+.profile {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#profile_img {
+    height: 40px;
+    width: 40px;
+}
+
+
+/* Right side */
 
 .right-bar {
     flex-basis: 80%;
@@ -39,11 +93,13 @@ button {
     padding: 2vh;
 }
 
+
 .stock-wrapper {
     width: 100%;
     height: 50%;
     display: flex;
 }
+
 
 
 #purchase-container {
@@ -57,81 +113,6 @@ button {
 }
 
 
-#buy {
-    background-color: #8FEB9E;
-    margin: 2vh;
-    cursor: pointer;
-    color: white;
-    border: none;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: none; 
-}
-
-#buy:hover {
-   box-shadow: 5px 5px lightgrey;
-}
-
-input {
-    height: 50px;
-    width: 50%;
-    margin: 2vh;
-    
-}
-
-
-.left-container {
-    display: flex;
-    width: 100%;
-    color: white; 
-    background-color: black;
-    height: 33.3333%;
-    justify-content: center;
-    flex-direction: column;
-
-}
-
-
-#logo {
-    height: 50px;
-    width: 50px; 
-}
-
-
-.left-bar-item {
-    font: 20px bold;
-    padding-left: 4vh;
-    cursor: pointer;
-    margin: 2vh; 
-}
-
-
-
-.line {
-    width: 0%;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    font-family: 'Roboto', sans-serif;
-}
-
-.line:hover {
-    width: 70%;
-    border-bottom: 1px solid white;
-    margin-left: 2vh;
-    font: 30px bold;
-    font-family: 'Roboto', sans-serif;
-    
-}
-
-.profile {
-    display: flex; 
-    color:  white;
-    align-items: center;
-    justify-content: space-around; 
-}
-
-#profile_img {
-    height: 40px;
-    width: 40px; 
-}
 
 .dashboard {
     display: flex;
@@ -141,50 +122,5 @@ input {
     border-radius: 10px;
 }
 
-/* Form Styling */
 
-
-label {
-    display: block;
-    font: 2rem 'Fira Sans', sans-serif;
-}
-
-input,
-label {
-    margin: 2vh;
-}
-
-input {
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 10px;
-}
-
-input:hover {
- 
-    box-shadow: 5px 5px lightblue;
-}
-
-.order-btn {
-    margin: 2vh;
-    border: none;
-    color: white; 
-}
-
-
-/*Harman skjønner finner ikke hvor buy-btn og sell-btn brukes*/
-#buy-btn {
-    background-color: lightgreen; 
-}
-
-#sell-btn {
-    background-color: lightcoral;
-}
-
-
-
-
-
-
-
-
-   
+/* Denne stylingen gjelder for index og portefølje siden. */
