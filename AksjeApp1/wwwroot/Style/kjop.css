@@ -8,18 +8,39 @@ body {
 }
 
 
+
+/* Skjemaet til kjøpe knappen */
 .bekreft {
-    margin: 4rem; 
+    margin: 4rem;
+    border: 1px solid #673AB7;
+    height: 50vh;
+    border-radius: 10px;
+    padding: 4vh;
 }
+
 
 
 .form {
     border: 1px solid lightgrey;
     height: 50vh;
     border-radius: 10px;
+    background: #673AB7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
 }
 
-.form-item {
-    border: 1px solid black;
-    margin: 4vh; 
+.list-group-flush .list-group-item {
+    margin: 4vh;
+    border-top: 80px;
+    border-radius: 10px; 
+}
+
+/* Kjøpe knappen */
+#reg {
+    border-radius: 20px;
+    box-shadow: 1.2px 1.2px lightgrey;
+    background: #673AB7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

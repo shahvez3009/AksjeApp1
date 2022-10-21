@@ -127,7 +127,7 @@ namespace AksjeApp1.DAL
         
         public async Task<Portfolio> HentEtPortfolio(int id)
         {
-            List<Portfolio> = etPortfolio = await _db.Portfolios.Where(p => p.Aksje.Id == id{ 
+            List<Portfolio> etPortfolio = await _db.Portfolios.Where(p => p.Aksje.Id == id{ 
                Id = etPortfolio.Id,
                Antall = etPortfolio.Antall,
                AksjeId = etPortfolio.Aksje.Id,
@@ -135,6 +135,7 @@ namespace AksjeApp1.DAL
                AksjePris = etPortfolio.Aksje.Pris,
                BrukerId = etPortfolio.Bruker.Id
             };
+
             return hentetPortfolio;
         }
         
