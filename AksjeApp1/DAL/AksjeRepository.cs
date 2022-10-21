@@ -88,6 +88,12 @@ namespace AksjeApp1.DAL
             }
              return false;
         }
+        /*
+        public async Task<Portfolio> HentEnPortfolio(int id)
+        {
+           
+        }
+        */
 
         public async Task<Aksje> HentEnAksje(int id)
         {
@@ -101,6 +107,21 @@ namespace AksjeApp1.DAL
                 AntallLedige = enAksje.AntallLedige
             };
             return hentetAksje;
+        }
+
+        public async Task<Bruker> HentEnBruker(int id)
+        {
+            Brukere enBruker = await _db.Brukere.FindAsync(id);
+            var hentetBruker = new Bruker()
+            {
+                Id = enBruker.Id,
+                Fornavn = enBruker.Fornavn,
+                Etternavn = enBruker.Etternavn,
+                Saldo = enBruker.Saldo,
+                Mail = enBruker.Mail,
+                Mobilnummer = enBruker.Mobilnummer
+            };
+            return hentetBruker;
         }
 
         public async Task<List<Aksje>> HentAksjene()
