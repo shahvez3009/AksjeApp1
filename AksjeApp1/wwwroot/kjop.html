@@ -80,19 +80,18 @@
 
                 </div>
 
-                    
-                
-
                     <div class="row">
 
 
                         <div class="col text-center">
 
-                            <h2>KUNDEINFO</h2>
+                            <h2>Aksje.navn</h2>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">A.navn</li>
-                                <li class="list-group-item">A.pris</li>
-                                <li class="list-group-item">Ledig aksjer/max</li>
+                                <li class="list-group-item">Pris pr aksje: "A.pris"</li>
+                                <li class="list-group-item">Ledig aksjer: "55"</li>
+
+                                <!--Denn skal regnes ut-->
+                                <li class="list-group-item">Du har maksimum råd til: "15" av denne aksjen</li>
                                 <li class="list-group-item"></li>
                             </ul>
 
@@ -101,8 +100,8 @@
 
                         <div class="col">
                             <div class="form-group">
-                                <h2>SKAL HENTE AKSJENAVN</h2>
-                                <input type="text" id="fornavn"/>
+                                <input type="text" id="antallAksjer" placeholder="Må være et helt tall"/>
+                                <label id="sumForKjop">sum for kjøp:</label>
                                 <input type="button" id="reg" value="Bekreft" onClick="denFunksjonenIJavaScriptSomKjøpeAksjer" class="btn btn-primary" />
                             </div>
 
