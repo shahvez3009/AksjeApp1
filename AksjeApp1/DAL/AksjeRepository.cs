@@ -124,22 +124,22 @@ namespace AksjeApp1.DAL
             return hentetAksje;
         }
 
-        
-        public async Task<Portfolio> HentEtPortfolio(int id)
+        public async Task<Portfolio> HentEtPortfolioRad(int id)
         {
-            List<Portfolio> etPortfolio = await _db.Portfolios.Where(p => p.Aksje.Id == id{ 
-               Id = etPortfolio.Id,
-               Antall = etPortfolio.Antall,
-               AksjeId = etPortfolio.Aksje.Id,
-               AksjeNavn = etPortfolio.Aksje.Navn,
-               AksjePris = etPortfolio.Aksje.Pris,
-               BrukerId = etPortfolio.Bruker.Id
+            Portfolios etPortfolioRad = _db.Portfolios.First(p => p.Aksje.Id == id);
+            Brukere enBruker = await _db.Brukere.FindAsync(1);
+            Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+            var hentetPortfolioRad = new Portfolio()
+            {
+                Id = etPortfolioRad.Id,
+                Antall = etPortfolioRad.Antall,
+                AksjeId = enAksje.Id,
+                AksjeNavn = enAksje.Navn,
+                AksjePris = enAksje.Pris,
+                BrukerId = enBruker.Id
             };
-
-            return hentetPortfolio;
+            return hentetPortfolioRad;
         }
-        
-        
 
         public async Task<List<Aksje>> HentAksjene()
         {

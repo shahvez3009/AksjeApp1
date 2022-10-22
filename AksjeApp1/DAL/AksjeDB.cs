@@ -41,8 +41,8 @@ namespace AksjeApp1.Models
         public int Antall { get; set; }
         public int OrdreSum { get; set; }
 
-        public virtual Aksjer Aksjer { get; set; }
-        public virtual Brukere Brukere { get; set; }
+        public virtual Aksjer Aksje { get; set; }
+        public virtual Brukere Bruker { get; set; }
     }
 
     public class AksjeContext : DbContext

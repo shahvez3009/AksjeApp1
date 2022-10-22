@@ -48,9 +48,9 @@ namespace AksjeApp1.Controllers
             return await _db.HentEnAksje(id);
         }
         
-        public async Task<Portfolio> HentEtPortfolio(int id)
+        public async Task<Portfolio> HentEtPortfolioRad(int id)
         {
-            return await _db.HentEtPortfolio(id);
+            return await _db.HentEtPortfolioRad(id);
         }
         
 

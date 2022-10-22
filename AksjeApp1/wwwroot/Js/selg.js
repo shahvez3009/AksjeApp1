@@ -5,7 +5,7 @@
 
     const urlAksje = "Aksje/HentEnAksje?" + aksjeid;
     const urlBruker = "Aksje/HentEnBruker";
-    const urlPortfolio = "Aksje/HentEtPortfolio?" + aksjeid;
+    const urlPortfolio = "Aksje/HentEtPortfolioRad?" + aksjeid;
 
     $.get(urlAksje, function (aksje) {
         $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html
