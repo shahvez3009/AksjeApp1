@@ -41,9 +41,9 @@ namespace AksjeApp1.Models
                 context.Aksjer.Add(apple);
                 context.Aksjer.Add(blizzard);
 
-                //context.Portfolios.Add(portfolio);
-                //context.Portfolios.Add(portfolio2);
-                //context.Portfolios.Add(portfolio3);
+                context.Portfolios.Add(portfolio);
+                context.Portfolios.Add(portfolio2);
+                context.Portfolios.Add(portfolio3);
 
                 context.SaveChanges();
             }
