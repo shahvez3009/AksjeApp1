@@ -82,9 +82,12 @@
                         </div>
                         <div class="col">
                             <div class="form-group bekreft">
-                                <input type="text" id="antallAksjer" placeholder="Må være et helt tall"/>
+                                <input type="text" id="antallAksjer" placeholder="Må være et helt tall" />
                                 <label id="sumForKjop">Total sum for kjøp:</label>
                                 <input type="button" id="reg" value="Bekreft" onClick="bekreftKjop()" class="btn btn-primary" />
+                                <p>Din ordre er nå bekreftet</p>
+                                <div id="bekreft_ordre"><a href="portfolio.html">Se porteføljen din</a></div>
+                            </div>
                             </div>
                             <div id="feil" style="color: red"></div>
                         </div>

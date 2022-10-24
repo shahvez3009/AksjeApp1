@@ -36,7 +36,7 @@ function hentAllInfo() {
     $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html
     $("#aksjeNavn").html(aksje.navn);
     $(".aksje_navn").html(aksje.navn);
-    $("#aksjePris").html(aksje.pris);
+    $("#aksjePris").html("Pris : " + aksje.pris + " NOK");
     console.log(
       "Aksje - " +
         aksje.id +
@@ -56,7 +56,7 @@ function hentAllInfo() {
   });
   $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
     $("#portfolioId").val(portfolio.id);
-    $("#portfolioAntall").html(portfolio.antall);
+    $("#portfolioAntall").html("Din beholdning er " + portfolio.antall + " aksjer");
     $("#portfolioAksjeId").val(portfolio.aksjeId);
     $("#portfolioAksjeNavn").val(portfolio.aksjeNavn);
     $("#portfolioAksjePris").val(portfolio.aksjePris);
@@ -82,7 +82,7 @@ function bekreftSalg() {
 
   $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
     if ((id, portfolio)) {
-      console.log("Det gikk bra kompis");
+        console.log("Det gikk bra kompis");
     } else {
       console.log("Du gjorde noe feil as");
     }

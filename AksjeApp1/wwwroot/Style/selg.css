@@ -46,4 +46,22 @@ body {
     background: linear-gradient(to right, #1232A8, #1232A8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+#bekreft_ordre {
+    color: white;
+    width: 20vh;
+    height: 5vh;
+    border-radius: 20px;
+    box-shadow: lightgrey 0px 5px 15px;
+    background: #1232A8; /* fallback for old browsers */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none; 
+}
 
+a {
+    width: 100%; 
+    text-decoration: none;
+    color: white;
+    text-align: center; 
+}

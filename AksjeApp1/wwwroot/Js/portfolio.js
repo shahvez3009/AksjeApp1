@@ -24,8 +24,10 @@ function formaterPortfolio(portfolios) {
             "<td> <a class='btn btn-danger'  href='selg.html?id=" + portfolio.aksjeId + "'>Selg</a></td>" +
             "</tr>";
     }
+
     ut += "</table>";
     $("#portfolio").html(ut);
+
 }
 
 
