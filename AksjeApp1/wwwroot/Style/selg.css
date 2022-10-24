@@ -1,2 +1,48 @@
-﻿body {
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+}
+
+
+
+/* Skjemaet til kjøpe knappen */
+.bekreft {
+    margin: 4rem;
+    border: 1px solid #673AB7;
+    height: 50vh;
+    border-radius: 10px;
+    padding: 4vh;
+    box-shadow: #673AB7 0px 5px 15px;
+}
+
+
+/*Boksene med pris, navn, etc..*/
+.form {
+    box-shadow: #673AB7 0px 5px 15px;
+    height: 50vh;
+    border-radius: 10px;
+    background: #673AB7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+/*Boksene med pris, navn, etc..*/
+.list-group-flush .list-group-item {
+    margin: 4vh;
+    border-top: 80px;
+    border-radius: 10px;
+}
+
+/* Kjøpe knappen */
+#reg {
+    border-radius: 20px;
+    box-shadow: lightgrey 0px 5px 15px;
+    background: #673AB7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -56,67 +56,40 @@
                 </div>
             </div>
         </section>
-
-
         <section class="right-bar">
-
             <div class="container-fluid">
-
                 <div class="row">
-
                     <div class="col text-center">
                         <!--Denne skal være tom-->
                     </div>
-
-
                     <div class="col-6 text-center">
                         <h1>SELG AKSJER</h1>
                     </div>
-
                     <div class="col">
-                        <p class="text-right" id="brukerFornavnEtternavn"></p>
+                        <p class="text-right" id="brukerFullNavn"></p>
                         <p class="text-right" id="brukerSaldo"></p>
                     </div>
-
-
                 </div>
-
-
-
-
                 <div class="row">
-
-
                     <div class="col text-center">
-
-                        <h2>KUNDEINFO</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item" id="aksjeNavn"></li>
-                            <li class="list-group-item" id="aksjePris"></li>
-                            <li class="list-group-item" id="portfolioAntall"></li>
-                            <li class="list-group-item"></li>
+                        <h2>Aksje infomasjon</h2>
+                        <ul class="list-group list-group-flush form">
+                            <li class="list-group-item form-item" id="aksjeNavn"></li>
+                            <li class="list-group-item form-item" id="aksjePris"></li>
+                            <li class="list-group-item form-item" id="portfolioAntall"></li>
                         </ul>
-
-
                     </div>
-
                     <div class="col">
-                        <div class="form-group">
-                            <h2>SKAL HENTE AKSJENAVN</h2>
+                        <div class="form-group bekreft">
+                            <h2 class="aksjeNavn"></h2>
                             <input type="text" id="fornavn" />
                             <input type="button" id="reg" value="Bekreft" onClick="denFunksjonenIJavaScriptSomKjøpeAksjer" class="btn btn-primary" />
                         </div>
-
-
                         <div id="feil" style="color: red"></div>
                     </div>
-
                 </div>
             </div>
-
         </section>
-
-
     </main>
 </body>
 

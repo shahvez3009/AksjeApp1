@@ -32,15 +32,17 @@ function hentAllInfo() {
         console.log("Portfolio - " + portfolio.id + portfolio.antall + portfolio.aksjeId + portfolio.aksjeNavn + portfolio.aksjePris + portfolio.brukerId);
     });
     */
+
     $.get("Aksje/HentEnAksje?" + aksjeid, function (aksje) {
         $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html
         $("#aksjeNavn").html(aksje.navn);
+        $(".aksje_navn").html(aksje.navn); 
         $("#aksjePris").html(aksje.pris);
         console.log("Aksje - " + aksje.id + aksje.navn + aksje.pris + aksje.maxAntall + aksje.antallLedige);
     });
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
-        $("#brukerFornavnEtternavn").html(bruker.fornavn+" "+bruker.etternavn);
+        $("#brukerFullNavn").html(bruker.fornavn+" "+bruker.etternavn);
         $("#brukerSaldo").html("Saldo: " + bruker.saldo + " NOK");
         console.log("Bruker - " + bruker.id + bruker.fornavn + bruker.etternavn + bruker.saldo);
     });
