@@ -19,82 +19,7 @@ namespace AksjeApp1.DAL
             _db = db;
         }
 
-        /*
-        public bool Selg(int brukerID, int aksjeID, int antall)
-        {
-            Aksjer finnAksje = _db.Aksjer.Find(aksjeID);
-            Brukere finnBruker = _db.Brukere.Find(brukerID);
-            int belop = antall * finnAksje.Pris;
-            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
 
-            if (portfolioss.Length == 1)
-            {
-                Portfolios eksisterendeAksje = portfolioss[0];
-                if (eksisterendeAksje.Antall > antall)
-                {
-                    eksisterendeAksje.Sum -= belop;
-                    eksisterendeAksje.Antall -= antall;
-                    finnBruker.Saldo += belop;
-                    finnAksje.AntallLedige += antall;
-                    _db.SaveChanges();
-                    return true;
-                }
-                else if (eksisterendeAksje.Antall == antall)
-                {
-                    finnBruker.Saldo += belop;
-                    finnAksje.AntallLedige += antall;
-                    _db.Remove(eksisterendeAksje.Id);
-                    _db.SaveChanges();
-                    return true;
-                }
-            }
-             return false;
-        }
-        public bool Kjop(Portfolio innPortfolio)
-        {
-            var finnAksje = _db.Aksjer.Find(innPortfolio.Aksje);
-            Console.WriteLine(finnAksje);
-            Console.ReadLine();
-            var finnBruker = _db.Brukere.Find(innPortfolio.Bruker);
-            Console.WriteLine(finnBruker);
-            Console.ReadLine();
-            int belop = innPortfolio.Sum;
-
-            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == finnAksje.Id).ToArray();
-            if (belop > finnBruker.Saldo)
-            {
-                return false;
-            }
-            if (portfolioss.Length == 1)
-            {
-
-                    var eksisterendeAksje = portfolioss[0];
-                    eksisterendeAksje.Sum += belop;
-                    eksisterendeAksje.Antall += innPortfolio.Antall;
-                    finnBruker.Saldo -= belop;
-                finnAksje.AntallLedige -= innPortfolio.Antall;
-
-                    _db.SaveChanges();
-                    return true;
-
-            }
-            else
-            {
-                    var nyPortfolio = new Portfolios();
-                    nyPortfolio.Aksje = finnAksje;
-                    nyPortfolio.Antall = innPortfolio.Antall;
-                    nyPortfolio.Bruker = finnBruker;
-                    nyPortfolio.Navn = finnBruker.Fornavn;
-                    nyPortfolio.Sum = belop;
-                finnAksje.AntallLedige -= innPortfolio.Antall;
-                _db.Portfolios.Add(nyPortfolio);
-                    _db.SaveChanges();
-                    return true;
-                
-            }
-           
-        }
-        */
 
 
 
@@ -158,41 +83,42 @@ namespace AksjeApp1.DAL
                 Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == id && p.Bruker.Id == 1).ToArray();
                 Brukere enBruker = await _db.Brukere.FindAsync(1);
                 Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-
-                var saldo = enBruker.Saldo;
-                var sum = enAksje.Pris * innPortfolio.Antall;
-
-                if (saldo >= sum)
+                if(enBruker.Saldo >= enAksje.Pris * innPortfolio.Antall && enAksje.AntallLedige >= innPortfolio.Antall)
                 {
                     if (portfolioss.Length == 1)
                     {
-                        Console.WriteLine("Jeg er i if");
-                  
+                        Console.WriteLine("Bruker har allerede aksje fra før av i Portfolio: ");
+                        Console.WriteLine(portfolioss[0].Antall);
                         portfolioss[0].Antall += innPortfolio.Antall;
-                        enBruker.Saldo -= enAksje.Pris * innPortfolio.Antall;
-                        enAksje.AntallLedige -= innPortfolio.Antall;
+                        Console.WriteLine(portfolioss[0].Antall);
 
                     }
                     else
                     {
-                        Console.WriteLine("Jeg er i else");
-
+                        Console.WriteLine("Bruker får ny aksje i Portfolio: ");
                         var nyPortfolio = new Portfolios();
                         nyPortfolio.Antall = innPortfolio.Antall;
                         nyPortfolio.Aksje = enAksje;
                         nyPortfolio.Bruker = enBruker;
                         _db.Portfolios.Add(nyPortfolio);
                     }
+                    Console.WriteLine("Saldo før oppdatering: " + enBruker.Saldo);
+                    enBruker.Saldo -= enAksje.Pris * innPortfolio.Antall;
+                    Console.WriteLine("Saldo etter oppdatering: " + enBruker.Saldo);
+
+                    Console.WriteLine("Antall Ledige før oppdatering: " + enAksje.AntallLedige);
+                    enAksje.AntallLedige -= innPortfolio.Antall;
+                    Console.WriteLine("Antall Ledige etter oppdatering: " + enAksje.AntallLedige);
+
                     await _db.SaveChangesAsync();
                     Console.WriteLine("Det funka, og du har råd");
                     return true;
                 }
-                else
-                {
-                    Console.WriteLine("Det funka, men du har ikke råd");
-                    return false;
-                }
+                Console.WriteLine("Det funka, og du har IKKE råd, eller du kan ikke kjøpe så mange aksjer.");
+                return false;
+                
             }
+
             catch
             {
                 Console.WriteLine("Noe gikk galt");
