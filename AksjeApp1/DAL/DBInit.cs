@@ -23,12 +23,12 @@ namespace AksjeApp1.Models
                 context.Database.EnsureCreated();
 
                 //Bruker
-                var enes = new Brukere { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 600000, Mail = "enesergin1204@hotmail.com", Mobilnummer = 90057976 };
+                var enes = new Brukere { Fornavn = "Enes", Etternavn = "Ergin", Saldo = 999999999, Mail = "enesergin1204@hotmail.com", Mobilnummer = 90057976 };
 
                 //Aksje
-                var microsoft = new Aksjer { Navn = "Microsoft", Pris = 300, AntallLedige = 5531, MaxAntall = 6000 };
-                var apple = new Aksjer { Navn = "Apple", Pris = 500, AntallLedige = 2431, MaxAntall = 3000 };
-                var blizzard = new Aksjer { Navn = "Blizzard", Pris = 150, AntallLedige = 431, MaxAntall = 900 };
+                var microsoft = new Aksjer { Navn = "Microsoft", Pris = 300, AntallLedige = 100, MaxAntall = 100 };
+                var apple = new Aksjer { Navn = "Apple", Pris = 500, AntallLedige = 3000, MaxAntall = 3000 };
+                var blizzard = new Aksjer { Navn = "Blizzard", Pris = 150, AntallLedige = 900, MaxAntall = 900 };
 
                 //Portfolio
                 var portfolio = new Portfolios { Antall = 5, Aksje = microsoft, Bruker = enes};
@@ -42,8 +42,8 @@ namespace AksjeApp1.Models
                 context.Aksjer.Add(blizzard);
 
                 //context.Portfolios.Add(portfolio);
-                context.Portfolios.Add(portfolio2);
-                context.Portfolios.Add(portfolio3);
+                //context.Portfolios.Add(portfolio2);
+                //context.Portfolios.Add(portfolio3);
 
                 context.SaveChanges();
             }
