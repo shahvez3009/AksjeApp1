@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text;
+using System.Reflection.Metadata;
 
 namespace AksjeApp1.DAL
 {
@@ -17,6 +18,61 @@ namespace AksjeApp1.DAL
         {
             _db = db;
         }
+
+
+
+
+
+        public async Task<bool> Selg(int aksjeID, int antall)
+        {
+            try {
+                Console.WriteLine("Jeg er i start");
+                Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == 2).ToArray();
+                Console.WriteLine(aksjeID);
+                var medAntall = 4;
+                if (etPortfolioRad.Length == 0)
+                {
+                    Console.WriteLine("FUNNET PORT");
+                }
+                Console.WriteLine("Jeg er forbi Portfolio");
+                Brukere enBruker = await _db.Brukere.FindAsync(1);
+                Console.WriteLine("Jeg er forbi Bruker");
+                Aksjer enAksje = await _db.Aksjer.FindAsync(aksjeID);
+                Console.WriteLine("Jeg er forbi Aksje");
+                var antallAksjer = etPortfolioRad[0].Antall;
+                Console.WriteLine(antallAksjer + "Ja");
+                if ( antallAksjer > medAntall)
+            {
+                    Console.WriteLine("Jeg er i if");
+                    enBruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    Console.WriteLine("Jeg er forbi saldo");
+                    etPortfolioRad[0].Antall -= medAntall;
+                    Console.WriteLine("Jeg er forbi antall");
+                    etPortfolioRad[0].Aksje.AntallLedige += medAntall;
+                    Console.WriteLine("Jeg er forbi ledige");
+                    await _db.SaveChangesAsync();
+                return true;
+            }
+                if (etPortfolioRad[0].Antall == antall)
+            {
+                    Console.WriteLine("Jeg er i else if");
+                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    etPortfolioRad[0].Aksje.AntallLedige += antall;
+                    _db.Remove(etPortfolioRad[0].Id);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+                Console.WriteLine("Jeg er i else");
+                return false;
+        }
+            catch
+            {
+                Console.WriteLine("Jeg er i catch");
+                return false;
+            }
+            }
+
+
 
 
 
