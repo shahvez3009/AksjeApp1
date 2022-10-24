@@ -19,9 +19,9 @@ function formaterPortfolio(portfolios) {
             "<td>" + portfolio.aksjeNavn + "</td>" +
             "<td>" + portfolio.aksjePris + "</td>" +
             "<td>" + portfolio.antall + "</td>" +
-            "<td>" + 200 + "</td> " +
-            "<td> <a class='btn btn-success'  href='kjop.html?id=" + portfolio.id + "'>Kjøp mer</a></td>" +
-            "<td> <a class='btn btn-danger'  href='selg.html?id=" + portfolio.id + "'>Selg</a></td>" +
+            "<td>" + portfolio.antall * portfolio.aksjePris + "</td> " +
+            "<td> <a class='btn btn-success'  href='kjop.html?id=" + portfolio.aksjeId + "'>Kjøp mer</a></td>" +
+            "<td> <a class='btn btn-danger'  href='selg.html?id=" + portfolio.aksjeId + "'>Selg</a></td>" +
             "</tr>";
     }
     ut += "</table>";

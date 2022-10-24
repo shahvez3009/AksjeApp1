@@ -38,6 +38,11 @@ namespace AksjeApp1.Controllers
         }
         */
 
+        public async Task<bool> Kjop(int id, Portfolios innPortfolio)
+        {
+            return await _db.Kjop(id, innPortfolio);
+        }
+
         public async Task<Bruker> HentEnBruker()
         {
             return await _db.HentEnBruker();

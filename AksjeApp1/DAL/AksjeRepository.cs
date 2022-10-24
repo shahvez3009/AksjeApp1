@@ -19,6 +19,36 @@ namespace AksjeApp1.DAL
         }
 
         /*
+        public bool Selg(int brukerID, int aksjeID, int antall)
+        {
+            Aksjer finnAksje = _db.Aksjer.Find(aksjeID);
+            Brukere finnBruker = _db.Brukere.Find(brukerID);
+            int belop = antall * finnAksje.Pris;
+            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+
+            if (portfolioss.Length == 1)
+            {
+                Portfolios eksisterendeAksje = portfolioss[0];
+                if (eksisterendeAksje.Antall > antall)
+                {
+                    eksisterendeAksje.Sum -= belop;
+                    eksisterendeAksje.Antall -= antall;
+                    finnBruker.Saldo += belop;
+                    finnAksje.AntallLedige += antall;
+                    _db.SaveChanges();
+                    return true;
+                }
+                else if (eksisterendeAksje.Antall == antall)
+                {
+                    finnBruker.Saldo += belop;
+                    finnAksje.AntallLedige += antall;
+                    _db.Remove(eksisterendeAksje.Id);
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+             return false;
+        }
         public bool Kjop(Portfolio innPortfolio)
         {
             var finnAksje = _db.Aksjer.Find(innPortfolio.Aksje);
@@ -63,37 +93,56 @@ namespace AksjeApp1.DAL
             }
            
         }
-        public bool Selg(int brukerID, int aksjeID, int antall)
-        {
-            Aksjer finnAksje = _db.Aksjer.Find(aksjeID);
-            Brukere finnBruker = _db.Brukere.Find(brukerID);
-            int belop = antall * finnAksje.Pris;
-            Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Bruker.Id == finnBruker.Id && p.Aksje.Id == finnAksje.Id).ToArray();
+        */
 
-            if (portfolioss.Length == 1)
+        public async Task<bool> Kjop(int id, Portfolios innPortfolio)
+        {
+            try
             {
-                Portfolios eksisterendeAksje = portfolioss[0];
-                if (eksisterendeAksje.Antall > antall)
+                Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == id && p.Bruker.Id == 1).ToArray();
+                Brukere enBruker = await _db.Brukere.FindAsync(1);
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+
+                var saldo = enBruker.Saldo;
+                var sum = enAksje.Pris * innPortfolio.Antall;
+
+                if (saldo >= sum)
                 {
-                    eksisterendeAksje.Sum -= belop;
-                    eksisterendeAksje.Antall -= antall;
-                    finnBruker.Saldo += belop;
-                    finnAksje.AntallLedige += antall;
-                    _db.SaveChanges();
+                    if (portfolioss.Length == 1)
+                    {
+                        Console.WriteLine("Jeg er i if");
+                  
+                        portfolioss[0].Antall += innPortfolio.Antall;
+                        enBruker.Saldo -= enAksje.Pris * innPortfolio.Antall;
+                        enAksje.AntallLedige -= innPortfolio.Antall;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Jeg er i else");
+
+                        var nyPortfolio = new Portfolios();
+                        nyPortfolio.Antall = innPortfolio.Antall;
+                        nyPortfolio.Aksje = enAksje;
+                        nyPortfolio.Bruker = enBruker;
+                        _db.Portfolios.Add(nyPortfolio);
+                    }
+                    await _db.SaveChangesAsync();
+                    Console.WriteLine("Det funka, og du har råd");
                     return true;
                 }
-                else if (eksisterendeAksje.Antall == antall)
+                else
                 {
-                    finnBruker.Saldo += belop;
-                    finnAksje.AntallLedige += antall;
-                    _db.Remove(eksisterendeAksje.Id);
-                    _db.SaveChanges();
-                    return true;
+                    Console.WriteLine("Det funka, men du har ikke råd");
+                    return false;
                 }
             }
-             return false;
+            catch
+            {
+                Console.WriteLine("Noe gikk galt");
+                return false;
+            }
         }
-        */
 
         public async Task<Bruker> HentEnBruker()
         {

@@ -24,7 +24,24 @@
     });
 
 });
+function bekreftKjop() {
+    const portfolio = {
+        antall: $("#antallAksjer").val()
+    }
+    const id = window.location.search.substring(1);
 
+    $.post("Aksje/Kjop?" + id, (id,portfolio), function (id, portfolio) {
+        if (id,portfolio) {
+            console.log("Det gikk bra kompis");
+        }
+
+        else {
+            console.log("Du gjorde noe feil as");
+        }
+    });
+}
+
+/*
 function kjopAksje() {
     const portfolio = {
         id: 5,
@@ -47,5 +64,5 @@ function kjopAksje() {
         }
     });
 }
-
+*/
 
