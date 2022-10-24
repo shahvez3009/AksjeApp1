@@ -26,21 +26,18 @@ namespace AksjeApp1.DAL
         public async Task<bool> Selg(int id, Portfolios innPortfolio)
         {
             try {
-                //Console.WriteLine("Jeg er i start");
+                //Finner den spesifike aksjen som skal selges fra portfolio
                 Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == id).ToArray();
-                Console.WriteLine(id);
-                Console.WriteLine(innPortfolio.Antall);
-                //Console.WriteLine("Jeg er forbi Portfolio");
                 Brukere enBruker = await _db.Brukere.FindAsync(1);
                 //Console.WriteLine("Jeg er forbi Bruker");
                 Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-              //  Console.WriteLine("Jeg er forbi Aksje");
+             
                 var antallAksjer = etPortfolioRad[0].Antall;
                // Console.WriteLine(antallAksjer + "Ja");
-                if ( antallAksjer > innPortfolio.Antall)
+                if (etPortfolioRad[0].Antall > innPortfolio.Antall)
             {
                     //Console.WriteLine("Jeg er i if");
-                    enBruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
                     //Console.WriteLine("Jeg er forbi saldo");
                     etPortfolioRad[0].Antall -= innPortfolio.Antall;
                     //Console.WriteLine("Jeg er forbi antall");
