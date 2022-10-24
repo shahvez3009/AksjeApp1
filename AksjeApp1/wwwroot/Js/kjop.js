@@ -1,6 +1,5 @@
 ﻿$(function () {
     hentAllInfo();
-
 });
 
 function hentAllInfo() {
@@ -37,15 +36,19 @@ function hentAllInfo() {
         $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html
         $("#aksjeNavn").html(aksje.navn);
         $(".aksje_navn").html(aksje.navn);
-        $("#aksjePris").html("Pris Pr Aksje" + ": " + aksje.pris);
+        $("#aksjePris").html("Pris Pr Aksje: " + aksje.pris);
+        $("#antallLedigeAksjer").html("antall ledige/max antall: " + aksje.antallLedige + "/" + aksje.maxAntall);
+        $("#formue").html(); 
         console.log("Aksje - " + aksje.id + aksje.navn + aksje.pris + aksje.maxAntall + aksje.antallLedige);
     });
+
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
         $("#brukerFullNavn").html(bruker.fornavn + " " + bruker.etternavn);
         $("#brukerSaldo").html("Saldo: " + bruker.saldo + " NOK");
         console.log("Bruker - " + bruker.id + bruker.fornavn + bruker.etternavn + bruker.saldo);
     });
+
     $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
         $("#portfolioId").val(portfolio.id);
         $("#portfolioAntall").html(portfolio.antall);
@@ -55,9 +58,24 @@ function hentAllInfo() {
         $("#portfolioBrukerId").val(portfolio.brukerId);
         console.log("Portfolio - " + portfolio.id + portfolio.antall + portfolio.aksjeId + portfolio.aksjeNavn + portfolio.aksjePris + portfolio.brukerId);
     });
-
+    let saldo = $("#brukerSaldo").val();
+    let aksjePris = $("#aksjePris").val();
+    console.log(saldo);
+    console.log(aksjePris);
 }
 
+function regnHvorMangeAksjerBrukerHarRadTil() {
+    let saldo = document.getElementById("#brukerSaldo");
+    console.log(saldo);
+    let aksjePris = document.getElementById("#aksjePris");
+    console.log(aksjePris);
+
+    let formue = getElementById("#formue")
+
+    console.log("HEI: " + saldo)
+
+    
+}
 
 
 
