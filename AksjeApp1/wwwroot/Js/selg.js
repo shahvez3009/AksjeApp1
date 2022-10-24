@@ -53,5 +53,23 @@ function hentAllInfo() {
         $("#portfolioBrukerId").val(portfolio.brukerId);
         console.log("Portfolio - " + portfolio.id + portfolio.antall + portfolio.aksjeId + portfolio.aksjeNavn + portfolio.aksjePris + portfolio.brukerId);
     });
-
+   
 }
+
+function bekreftSalg() {
+    const portfolio = $("#antall").val()
+    console.log(portfolio)
+    const id = window.location.search.substring(1);
+    const aId = 2;
+    console.log(aId);
+    console.log(id);
+    $.post("Aksje/Selg?" + id, (aId, portfolio), function (id, portfolio) {
+        if (id, antall) {
+            console.log("Det gikk bra kompis");
+        }
+
+        else {
+            console.log("Du gjorde noe feil as");
+        }
+    });
+    }
