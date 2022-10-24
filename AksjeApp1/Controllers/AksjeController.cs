@@ -37,9 +37,9 @@ namespace AksjeApp1.Controllers
             return await _db.Selg(innOrdre);
         }
         */
-        public async Task<bool> Selg(int aksjeID, int antall)
+        public async Task<bool> Selg(int id, Portfolios innPortfolio)
         {
-            return await _db.Selg(aksjeID, antall);
+            return await _db.Selg(id, innPortfolio);
         }
 
         public async Task<bool> Kjop(int id, Portfolios innPortfolio)

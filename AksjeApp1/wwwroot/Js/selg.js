@@ -59,14 +59,14 @@ function hentAllInfo() {
 }
 
 function bekreftSalg() {
-    const portfolio = $("#antall").val()
-    console.log(portfolio)
+    const portfolio = {
+        antall: $("#antall").val()
+    }
     const id = window.location.search.substring(1);
-    const aId = 2;
-    console.log(aId);
     console.log(id);
-    $.post("Aksje/Selg?" + id, (aId, portfolio), function (id, portfolio) {
-        if (id, antall) {
+
+    $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
+        if (id, portfolio) {
             console.log("Det gikk bra kompis");
         }
 
@@ -74,4 +74,4 @@ function bekreftSalg() {
             console.log("Du gjorde noe feil as");
         }
     });
-    }
+}
