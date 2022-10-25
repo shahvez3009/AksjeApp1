@@ -6,6 +6,11 @@ function hentAlleAksjer() {
     $.get("Aksje/HentAksjene", function (aksjer) {
         formaterAksjer(aksjer);
     });
+
+    $.get("Aksje/HentEnBruker", function (bruker) {
+        $("#brukerId").val(bruker.id);
+        $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
+    });
 }
 
 function formaterAksjer(aksjer) {
@@ -13,6 +18,7 @@ function formaterAksjer(aksjer) {
         "<tr>" +
         "<th>Stock Name</th><th>Price</th><th>Max Amount</th><th>Available shares</th><th></th><th></th>" +
         "</tr>";
+
     for (let aksje of aksjer) {
         ut += "<tr>" +
             "<td>" + aksje.navn + "</td>" +
@@ -26,7 +32,6 @@ function formaterAksjer(aksjer) {
     ut += "</table>";
     $("#aksjer").html(ut);
 }
-
 
 
 

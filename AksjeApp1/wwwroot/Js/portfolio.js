@@ -2,10 +2,15 @@
     hentHelePortfolio();
 });
 
-function hentHelePortfolio()
-{
+function hentHelePortfolio() {
     $.get("Aksje/HentPortfolio", function (portfolios) {
         formaterPortfolio(portfolios);
+    });
+
+    $.get("Aksje/HentEnBruker", function (bruker) {
+        $("#brukerId").val(bruker.id);
+        $("#portfolioEier").html(bruker.fornavn + " " + bruker.etternavn + " - Portfolio");
+        $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
     });
 }
 
@@ -24,9 +29,10 @@ function formaterPortfolio(portfolios) {
             "<td> <a class='btn btn-danger'  href='selg.html?id=" + portfolio.aksjeId + "'>Selg</a></td>" +
             "</tr>";
     }
+
     ut += "</table>";
     $("#portfolio").html(ut);
-}
 
+}
 
 

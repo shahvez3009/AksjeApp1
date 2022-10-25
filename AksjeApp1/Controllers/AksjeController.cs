@@ -31,12 +31,12 @@ namespace AksjeApp1.Controllers
             return _db.Kjop(innPortfolio);
         }
 
-        
-        public async Task<bool> Selg(Ordre innOrdre)
+         */
+        public async Task<bool> Selg(int id, Portfolios innPortfolio)
         {
-            return await _db.Selg(innOrdre);
+            return await _db.Selg(id,innPortfolio);
         }
-        */
+       
 
         public async Task<bool> Kjop(int id, Portfolios innPortfolio)
         {

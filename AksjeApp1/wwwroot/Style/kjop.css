@@ -1,7 +1,7 @@
 ﻿* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -48,3 +48,23 @@ body {
 }
 
 
+#bekreft_ordre {
+    color: white;
+    width: 20vh;
+    height: 5vh;
+    border-radius: 20px;
+    box-shadow: lightgrey 0px 5px 15px;
+    background: #1232A8; /* fallback for old browsers */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    margin-top: 5vh;
+}
+
+#link_bekreft_ordre {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}

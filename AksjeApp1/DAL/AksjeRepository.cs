@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text;
+using System.Reflection.Metadata;
 
 namespace AksjeApp1.DAL
 {
@@ -20,57 +21,55 @@ namespace AksjeApp1.DAL
 
 
 
-<<<<<<< HEAD
-=======
 
         // Denne funksjonen vil kjøres når brukeren selger aksjer fra portføljen
         public async Task<bool> Selg(int id, Portfolios innPortfolio)
         {
-            try {
+            try
+            {
                 //Finner den spesifike aksjen som skal selges fra portfolio via AksjeID
                 Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == id).ToArray();
 
                 // Sjekker om antallet brukeren prøver å selge er mindre enn det brukeren eier. Hvis dette er sann vil den utføre transaksjonen
                 if (etPortfolioRad[0].Antall > innPortfolio.Antall)
-            {
-                   // Legger til Saldo for brukeren fra salget
-                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                {
+                    // Legger til Saldo for brukeren fra salget
+                    etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
                     // Antallet aksjer brukeren eier vil minke
                     etPortfolioRad[0].Antall -= innPortfolio.Antall;
                     //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
-                   // Lagrer endringene til databasen
+                    // Lagrer endringene til databasen
                     await _db.SaveChangesAsync();
-                return true;
-            }
+                    return true;
+                }
                 // Sjekker om brukeren vil selge alle aksjene den eier. Hvis dette er sann vil den slette aksje beholdningen fra portføljen.
                 if (etPortfolioRad[0].Antall == innPortfolio.Antall)
-            {
+                {
                     //Legger til Saldo for brukeren fra salget
-                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
                     //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
-                   // Slette beholdningen fra databasen ettersom alt er solgt.
+                    // Slette beholdningen fra databasen ettersom alt er solgt.
                     _db.Remove(etPortfolioRad[0]);
                     //Lagrer endringene til databasen
                     await _db.SaveChangesAsync();
-                return true;
-            }
+                    return true;
+                }
                 Console.WriteLine("Jeg er i else");
                 return false;
-        }
+            }
             catch
             {
                 Console.WriteLine("Jeg er i catch");
                 return false;
             }
-            }
+        }
 
 
 
 
 
->>>>>>> parent of 79d171c (Fikset feil i salg)
         public async Task<bool> Kjop(int id, Portfolios innPortfolio)
         {
             try
@@ -78,7 +77,7 @@ namespace AksjeApp1.DAL
                 Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == id && p.Bruker.Id == 1).ToArray();
                 Brukere enBruker = await _db.Brukere.FindAsync(1);
                 Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-                if(enBruker.Saldo >= enAksje.Pris * innPortfolio.Antall && enAksje.AntallLedige >= innPortfolio.Antall)
+                if (enBruker.Saldo >= enAksje.Pris * innPortfolio.Antall && enAksje.AntallLedige >= innPortfolio.Antall)
                 {
                     if (portfolioss.Length == 1)
                     {
@@ -111,7 +110,7 @@ namespace AksjeApp1.DAL
                 }
                 Console.WriteLine("Det funka, og du har IKKE råd, eller du kan ikke kjøpe så mange aksjer.");
                 return false;
-                
+
             }
 
             catch
@@ -207,7 +206,6 @@ namespace AksjeApp1.DAL
                 return null;
             }
         }
-        
+
     }
 }
-

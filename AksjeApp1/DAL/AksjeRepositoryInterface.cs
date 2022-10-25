@@ -8,8 +8,7 @@ namespace AksjeApp1.DAL
 {
     public interface AksjeRepositoryInterface
     {
-        //bool Kjop(Portfolio innPortfolio);
-        //Task<bool> Selg(Ordre innOrdre);
+        Task<bool> Selg(int id, Portfolios innPortfolio);
         Task<bool> Kjop(int id, Portfolios innPortfolio);
         Task<Bruker> HentEnBruker();
         Task<Aksje> HentEnAksje(int id);
@@ -18,4 +17,3 @@ namespace AksjeApp1.DAL
         Task<List<Portfolio>> HentPortfolio();
     }
 }
-

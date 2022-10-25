@@ -1,5 +1,5 @@
 ﻿* {
-    box-sizing:border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -15,7 +15,7 @@ main {
 }
 
 section {
-    height: 100vh; 
+    height: 100vh;
 }
 
 
@@ -63,13 +63,13 @@ section {
     font-family: 'Roboto', sans-serif;
 }
 
-.line:hover {
+    .line:hover {
         width: 70%;
         border-bottom: 1px solid white;
         margin-left: 2vh;
         font: 30px bold;
         font-family: 'Roboto', sans-serif;
-}
+    }
 
 .profile {
     display: flex;
