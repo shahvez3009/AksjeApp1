@@ -33,7 +33,7 @@ namespace AksjeApp1.DAL
                 if (etPortfolioRad[0].Antall > innPortfolio.Antall)
             {
                    // Legger til Saldo for brukeren fra salget
-                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
                     // Antallet aksjer brukeren eier vil minke
                     etPortfolioRad[0].Antall -= innPortfolio.Antall;
                     //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
@@ -46,7 +46,7 @@ namespace AksjeApp1.DAL
                 if (etPortfolioRad[0].Antall == innPortfolio.Antall)
             {
                     //Legger til Saldo for brukeren fra salget
-                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
                     //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
                    // Slette beholdningen fra databasen ettersom alt er solgt.
