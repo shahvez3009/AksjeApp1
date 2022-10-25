@@ -59,6 +59,7 @@ body {
     justify-content: center;
     display: flex;
     text-decoration: none;
+    margin-top: 5vh;
 }
 
 #link_bekreft_ordre {
@@ -66,5 +67,6 @@ body {
     text-decoration: none;
     color: white;
     text-align: center;
+    
 }
 

@@ -26,11 +26,11 @@ function hentAllInfo(){
         $("#portfolioAksjePris").val(portfolio.aksjePris);
         $("#portfolioBrukerId").val(portfolio.brukerId);
     });
-<<<<<<< HEAD
-    */
+
+ 
 
   $.get("Aksje/HentEnAksje?" + aksjeid, function (aksje) {
-    $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html
+    $("#aksjeId").val(aksje.id); // må ha med id inn skjemaet, hidden i html 
     $("#aksjeNavn").html(aksje.navn);
     $(".aksje_navn").html(aksje.navn);
     $("#aksjePris").html("Pris : " + aksje.pris + " NOK");
@@ -76,24 +76,21 @@ function bekreftSalg() {
         antall: $("#antall").val(),
     };
 
+    const id = window.location.search.substring(1);
 
   $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
-    if ((id, portfolio)) {
-        console.log("Det gikk bra kompis");
+      if ((id, portfolio)) {
+
+          const para = document.createElement("p");
+          para.innerText = "Salget ditt er registrert";
+          document.querySelector(".selg_bekreft_tekst").appendChild(para)
+
     } else {
       console.log("Du gjorde noe feil as");
     }
   });
 
-    const id = window.location.search.substring(1);
-
-    $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
-        if ((id, portfolio)) {
-            console.log("Det gikk bra kompis");
-        }
-        else {
-            console.log("Du gjorde noe feil as");
-        }
-    });
-
 }
+
+
+

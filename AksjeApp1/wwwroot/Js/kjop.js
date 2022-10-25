@@ -36,8 +36,12 @@ function bekreftKjop()
     const id = window.location.search.substring(1);
 
     $.post("Aksje/Kjop?" + id, (id, portfolio), function (id, portfolio){
-        if (id, portfolio){
-            console.log("Det gikk bra kompis");
+        if (id, portfolio) {
+
+            const bekreft_tekst = document.createElement("p");
+            bekreft_tekst.innerText = "Kjøpet ditt er registrert";
+            document.querySelector(".kjop_bekreft_tekst").appendChild(bekreft_tekst); 
+           // console.log("Det gikk bra kompis");
         }
 
         else{
@@ -45,3 +49,5 @@ function bekreftKjop()
         }
     });
 }
+
+
