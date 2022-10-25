@@ -22,39 +22,36 @@ namespace AksjeApp1.DAL
 
 
 
-
+        // Denne funksjonen vil kjøres når brukeren selger aksjer fra portføljen
         public async Task<bool> Selg(int id, Portfolios innPortfolio)
         {
             try {
-                //Finner den spesifike aksjen som skal selges fra portfolio
+                //Finner den spesifike aksjen som skal selges fra portfolio via AksjeID
                 Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == id).ToArray();
-                Brukere enBruker = await _db.Brukere.FindAsync(1);
-                //Console.WriteLine("Jeg er forbi Bruker");
-                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-             
-                var antallAksjer = etPortfolioRad[0].Antall;
-               // Console.WriteLine(antallAksjer + "Ja");
+
+                // Sjekker om antallet brukeren prøver å selge er mindre enn det brukeren eier. Hvis dette er sann vil den utføre transaksjonen
                 if (etPortfolioRad[0].Antall > innPortfolio.Antall)
             {
-                    //Console.WriteLine("Jeg er i if");
+                   // Legger til Saldo for brukeren fra salget
                     etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
-                    //Console.WriteLine("Jeg er forbi saldo");
+                    // Antallet aksjer brukeren eier vil minke
                     etPortfolioRad[0].Antall -= innPortfolio.Antall;
-                    //Console.WriteLine("Jeg er forbi antall");
+                    //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
-                   // Console.WriteLine("Jeg er forbi ledige");
+                   // Lagrer endringene til databasen
                     await _db.SaveChangesAsync();
                 return true;
             }
+                // Sjekker om brukeren vil selge alle aksjene den eier. Hvis dette er sann vil den slette aksje beholdningen fra portføljen.
                 if (etPortfolioRad[0].Antall == innPortfolio.Antall)
             {
-                    //Console.WriteLine("Jeg er i else if");
+                    //Legger til Saldo for brukeren fra salget
                     etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
-                    //Console.WriteLine("Jeg er i saldO");
+                    //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
-                   // Console.WriteLine("Jeg er i ledige");
+                   // Slette beholdningen fra databasen ettersom alt er solgt.
                     _db.Remove(etPortfolioRad[0]);
-                    //Console.WriteLine("Jeg er i slett");
+                    //Lagrer endringene til databasen
                     await _db.SaveChangesAsync();
                 return true;
             }
