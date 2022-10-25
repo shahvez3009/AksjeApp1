@@ -20,6 +20,57 @@ namespace AksjeApp1.DAL
 
 
 
+<<<<<<< HEAD
+=======
+
+        // Denne funksjonen vil kjøres når brukeren selger aksjer fra portføljen
+        public async Task<bool> Selg(int id, Portfolios innPortfolio)
+        {
+            try {
+                //Finner den spesifike aksjen som skal selges fra portfolio via AksjeID
+                Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == id).ToArray();
+
+                // Sjekker om antallet brukeren prøver å selge er mindre enn det brukeren eier. Hvis dette er sann vil den utføre transaksjonen
+                if (etPortfolioRad[0].Antall > innPortfolio.Antall)
+            {
+                   // Legger til Saldo for brukeren fra salget
+                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    // Antallet aksjer brukeren eier vil minke
+                    etPortfolioRad[0].Antall -= innPortfolio.Antall;
+                    //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
+                    etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
+                   // Lagrer endringene til databasen
+                    await _db.SaveChangesAsync();
+                return true;
+            }
+                // Sjekker om brukeren vil selge alle aksjene den eier. Hvis dette er sann vil den slette aksje beholdningen fra portføljen.
+                if (etPortfolioRad[0].Antall == innPortfolio.Antall)
+            {
+                    //Legger til Saldo for brukeren fra salget
+                    etPortfolioRad[0].Bruker.Saldo += etPortfolioRad[0].Antall * etPortfolioRad[0].Aksje.Pris;
+                    //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
+                    etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
+                   // Slette beholdningen fra databasen ettersom alt er solgt.
+                    _db.Remove(etPortfolioRad[0]);
+                    //Lagrer endringene til databasen
+                    await _db.SaveChangesAsync();
+                return true;
+            }
+                Console.WriteLine("Jeg er i else");
+                return false;
+        }
+            catch
+            {
+                Console.WriteLine("Jeg er i catch");
+                return false;
+            }
+            }
+
+
+
+
+
+>>>>>>> parent of 79d171c (Fikset feil i salg)
         public async Task<bool> Kjop(int id, Portfolios innPortfolio)
         {
             try
