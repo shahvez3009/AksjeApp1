@@ -5,6 +5,7 @@
 function hentAllInfo() {
     $.get("Aksje/HentTransaksjon", function (transaksjoner) {
         formaterTransaksjon(transaksjoner);
+       
     });
 
     $.get("Aksje/HentEnBruker", function (bruker) {

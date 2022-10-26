@@ -27,32 +27,31 @@
 </head>
 <body>
     <main>
-        <section class="left-bar">
+         <section class="left-bar">
             <div class="left-container">
                 <div class="profile">
                     <img src="Images/logoX.png" />
                 </div>
             </div>
             <div class="left-container">
-                <p class="left-bar-item line"><a href="index.html">Home</a>
-             </p>
-            <p class="left-bar-item line">
-                <a href="portfolio.html">Portfolio</a>
-            </p>
-            <p class="left-bar-item line">
-                <a href="transaksjon.html">Transactions</a>
-            </p>
-        </div>
-        <div class="left-container">
-          <div class="profile">
-            <img
-              id="profile_img"
-              src="Images/Ellipse 3.png"
-              alt="profile_image"
-            />
-            <p class="innloggetBruker"></p>
-          </div>
-        </div>
+                <p class="left-bar-item">
+                    <a href="index.html">Min Økonomi</a>
+                </p>
+                <p class="left-bar-item">
+                    <a href="portfolio.html">Portefølje</a>
+                </p>
+                <p class="left-bar-item">
+                    <a href="transaksjon.html">Transaksjonshistorikk</a>
+                </p>
+            </div>
+            <div class="left-container">
+                <div class="profile">
+                    <img id="profile_img"
+                         src="Images/Ellipse 3.png"
+                         alt="profile_image" />
+                    <p class="innloggetBruker"></p>
+                </div>
+            </div>
         </section>
       <section class="right-bar">
         <div class="container-fluid">
@@ -78,23 +77,19 @@
               </ul>
             </div>
             <div class="col">
-              <div class="form-group">
-                <input type="text" id="antallAksjer" />
-                  <input
-                  type="button"
-                  id="reg"
-                  value="Bekreft"
-                  onClick="bekreftSalg()"
-                  class="btn btn-primary"
-                />
-                <div class="selg_bekreft_tekst"></div>
-                <div id="bekreft_ordre">
-                  <a id="link_bekreft_ordre" href="portfolio.html"
-                    >Se porteføljen din</a
-                  >
+                <div class="form-group bekreft">
+                    <input type="number" id="antallAksjer" oninput="fjernFeil()" />
+                    <input type="button"
+                           id="reg"
+                           value="Bekreft"
+                           onClick="bekreftSalg()"
+                           class="btn btn-primary" />
+                    <div id="feil" style="color: red"></div>
+                    <div class="selg_bekreft_tekst"></div>
+                    <div id="bekreft_ordre">
+                        <a id="link_bekreft_ordre" href="portfolio.html">Se porteføljen din</a>
+                    </div>
                 </div>
-              </div>
-              <div id="feil" style="color: red"></div>
             </div>
           </div>
         </div>

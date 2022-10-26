@@ -14,15 +14,10 @@
 
     <!--- Dette er tor sin bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
-
-
-
     <link rel="stylesheet" href="Style/style.css" />
     <link rel="stylesheet" href="Style/kjop.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
           rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/logoX.png" />
@@ -36,14 +31,14 @@
                 </div>
             </div>
             <div class="left-container">
-                <p class="left-bar-item line">
-                    <a href="index.html">Home</a>
+                <p class="left-bar-item">
+                    <a href="index.html">Min Økonomi</a>
                 </p>
-                <p class="left-bar-item line">
-                    <a href="portfolio.html">Portfolio</a>
+                <p class="left-bar-item">
+                    <a href="portfolio.html">Portefølje</a>
                 </p>
-                <p class="left-bar-item line">
-                    <a href="transaksjon.html">Transactions</a>
+                <p class="left-bar-item">
+                    <a href="transaksjon.html">Transaksjonshistorikk</a>
                 </p>
             </div>
             <div class="left-container">
@@ -80,14 +75,16 @@
                     </div>
                     <div class="col">
                         <div class="form-group bekreft">
-                            <input type="text" id="antallAksjer" placeholder="Må være et helt tall" onchange="oppdaterSum()"/>
+                            <input type="number" id="antallAksjer" placeholder="Må være et helt tall" onchange="oppdaterSum()" oninput="fjernFeil()" />
                             <p id="sumForKjop">Total sum for kjøp:</p>
                             <input type="button" id="reg" value="Bekreft" onClick="bekreftKjop()" class="btn btn-primary" />
                             <div class="kjop_bekreft_tekst"></div>
-                            <div id="bekreft_ordre"><a href="portfolio.html">Se porteføljen din</a></div>
+                            <div id="feil" style="color: red"></div>
+                            <div id="bekreft_ordre"><a id="link_bekreft_ordre" href="portfolio.html">Se porteføljen din</a></div>
+
                         </div>
                     </div>
-                    <div id="feil" style="color: red"></div>
+                
                 </div>
             </div>
         </section>

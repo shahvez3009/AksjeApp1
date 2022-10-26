@@ -18,7 +18,7 @@ function hentAllInfo() {
 function formaterAksjer(aksjer) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Stock Name</th><th>Price</th><th>Max Amount</th><th>Available shares</th><th></th><th></th>" +
+        "<th>Aksje navn</th><th>Pris</th><th>Maks antall tilgjenglig</th><th>Tilgjengelig aksjer</th><th></th><th></th>" +
         "</tr>";
 
     for (let aksje of aksjer) {
@@ -27,8 +27,8 @@ function formaterAksjer(aksjer) {
             "<td>" + aksje.pris + "</td>" +
             "<td>" + aksje.maxAntall + "</td>" +
             "<td>" + aksje.antallLedige + "</td>" +
-            `<td> <a class='btn btn-secondary' onClick='endreChart(" ${aksje.navn}"," ${aksje.id}") '>Show Chart</a></td>` +
-            "<td> <a class='btn btn-success'  href='kjop.html?id=" + aksje.id + "'>Buy</a></td>" +
+            `<td> <a class='btn btn-secondary' onClick='endreChart(" ${aksje.navn}"," ${aksje.id}") '>Vis graf</a></td>` +
+            "<td> <a class='btn btn-success'  href='kjop.html?id=" + aksje.id + "'>Kjøp</a></td>" +
             "</tr>";
     }
     ut += "</table>";
@@ -41,18 +41,18 @@ function endreChart(navn, i) {
     $("#grafNavn").html("Graf av " + navn + " sin aksje");
 
     const labels = [
-        "January",
-        "February",
-        "March",
+        "Januar",
+        "Februar",
+        "Mars",
         "April",
-        "May",
-        "June",
-        "July",
+        "Mai",
+        "Juni",
+        "Juli",
         "August",
         "September",
-        "October",
+        "Oktober",
         "November",
-        "December"];
+        "Desember"];
    
    
     const data = [

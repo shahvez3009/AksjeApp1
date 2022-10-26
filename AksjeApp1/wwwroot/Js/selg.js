@@ -2,6 +2,8 @@
     hentAllInfo();
 });
 
+let aksjeState; 
+
 function hentAllInfo() {
     const aksjeid = window.location.search.substring(1);
 
@@ -18,12 +20,29 @@ function hentAllInfo() {
     });
 
     $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
+        aksjeState = portfolio; 
         $("#portfolioId").val(portfolio.id);
         $("#portfolioAntall").html("Antall " + portfolio.aksjeNavn + " aksjer i portefølje - <b>" + portfolio.antall + "</b>");
     });
 }
 
+
+function fjernFeil() {
+    const feil = document.getElementById("feil"); 
+    feil.innerHTML = "";
+}
+
 function bekreftSalg() {
+
+    const feil = document.getElementById("feil");
+    const antallAksjer = $("#antallAksjer").val();
+    const portfolioAntall = aksjeState.antall;
+
+
+    if (antallAksjer > portfolioAntall) {
+        feil.innerText = "Antallet ditt overskrider tilgjengelig beholdning";
+    }
+
     const portfolio = {
         antall: $("#antallAksjer").val(),
     };

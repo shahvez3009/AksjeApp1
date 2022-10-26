@@ -2,10 +2,13 @@
     hentAllInfo();
 });
 
+let aksjeState;
+
 function hentAllInfo() {
     const aksjeid = window.location.search.substring(1);
 
     $.get("Aksje/HentEnAksje?" + aksjeid, function (aksje) {
+        aksjeState = aksje;
         $("#aksjeId").val(aksje.id);
         $("#aksjeNavn").html("Aksjenavn - <b>" + aksje.navn + "</b>");
         $("#aksjePris").html("Pris per Aksje - <b>" + aksje.pris + "</b>");
@@ -24,7 +27,22 @@ function oppdaterSum() {
     hentAllInfo();
 }
 
+function fjernFeil() {
+    const feil = document.getElementById("feil");
+    feil.innerHTML = "";
+}
+
 function bekreftKjop() {
+
+    const feil = document.getElementById("feil");
+    const antallAksjer = $("#antallAksjer").val()
+    const aksjeLedigeMax = aksjeState.antallLedige;
+
+    if (antallAksjer > aksjeLedigeMax) {
+        feil.innerText = "Antallet ditt overskrider tilgjengelig beholdning";
+    }
+    
+
     const portfolio = {
         antall: $("#antallAksjer").val()
     }
@@ -32,13 +50,15 @@ function bekreftKjop() {
 
     $.post("Aksje/Kjop?" + id, (id, portfolio), function (id, portfolio) {
         if (id, portfolio) {
+            
             $("#antallAksjer").val(null);
             hentAllInfo();
-            console.log("Det gikk bra kompis. Jeg er i JS");
+            
+             console.log("Kjøpet ble gjennomført");
         }
 
         else {
-            console.log("Du gjorde noe feil as. Jeg er i JS");
+            console.log("Error");
         }
     });
 }

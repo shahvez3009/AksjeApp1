@@ -64,3 +64,9 @@ a {
     color: white;
     text-align: center;
 }
+
+#link_bekreft_ordre {
+    text-decoration: none;
+    color: white;
+    width: 100%; 
+}

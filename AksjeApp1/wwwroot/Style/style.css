@@ -18,10 +18,14 @@ section {
     height: 100vh;
 }
 
+/* Vis graf knapp */
+
+.btn-secondary {
+    background-color: white; 
+}
 
 
 /* Left side */
-
 .left-bar a {
     height: 100%;
     flex-basis: 20%;
@@ -53,23 +57,10 @@ section {
     padding-left: 4vh;
     cursor: pointer;
     margin: 2vh;
-}
-
-
-
-.line {
-    width: 0%;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     font-family: 'Roboto', sans-serif;
 }
 
-    .line:hover {
-        width: 70%;
-        border-bottom: 1px solid white;
-        margin-left: 2vh;
-        font: 30px bold;
-        font-family: 'Roboto', sans-serif;
-    }
+
 
 .profile {
     display: flex;
@@ -123,3 +114,17 @@ section {
 
 
 /* Denne stylingen gjelder for index og portefølje siden. */
+
+
+
+#transaksjon {
+   overflow: scroll;
+   height: 80vh;
+   width: 100%; 
+}
+
+/*
+    antall ledige >= antall som skal kjøpes
+
+
+*/
