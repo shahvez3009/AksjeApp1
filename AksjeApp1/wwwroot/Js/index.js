@@ -5,13 +5,14 @@
 function hentAllInfo() {
     $.get("Aksje/HentAksjene", function (aksjer) {
         formaterAksjer(aksjer);
-        endreChart();
     });
 
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
     });
+
+
 }
 
 function formaterAksjer(aksjer) {
@@ -36,6 +37,9 @@ function formaterAksjer(aksjer) {
 
 
 function endreChart(navn, i) {
+
+    $("#grafNavn").html("Graf av " + navn + " sin aksje");
+
     const labels = [
         "January",
         "February",
