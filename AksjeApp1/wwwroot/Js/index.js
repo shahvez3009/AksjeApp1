@@ -62,7 +62,7 @@ function endreChart(navn, i) {
            {
                 label: "Microsoft",
                // backgroundColor: "rgb(1,29,156)",
-                borderColor: "rgb(1,29,156)",
+                borderColor: "rgb(0,255,0)",
                 data: [90, 40, 15, 5, 25, 35, 25, 5, 15, 80, 10, 300]
             }
         ]
@@ -73,7 +73,7 @@ function endreChart(navn, i) {
             {
                 label: "Apple",
                // backgroundColor: "rgb(1,29,156)",
-                borderColor: "rgb(1,29,156)",
+                borderColor: "rgb(220,20,60)",
                 data: [90, 100, 15, 5, 45, 35, 25, 5, 15, 80, 20, 500]
            }
        ]
@@ -94,7 +94,7 @@ function endreChart(navn, i) {
        datasets: [
            {
                label: "Google",
-               backgroundColor: "rgb(1,29,156)",
+               //backgroundColor: "rgb(1,29,156)",
                 borderColor: "rgb(1,29,156)",
                 data: [90, 90, 15, 5, 25, 35, 25, 15, 15, 80, 10, 12]
           }
@@ -106,7 +106,7 @@ function endreChart(navn, i) {
        datasets: [
            {
                label: "Netflix",
-             backgroundColor: "rgb(1,29,156)",
+             //backgroundColor: "rgb(1,29,156)",
                borderColor: "rgb(1,29,156)",
                data: [90, 100, 25, 5, 25, 35, 25, 5, 25, 80, 20, 12]
             }
