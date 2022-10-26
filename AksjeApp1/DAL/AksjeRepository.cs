@@ -160,15 +160,11 @@ namespace AksjeApp1.DAL
                 {
                     if (portfolioss.Length == 1)
                     {
-                        Console.WriteLine("Bruker har allerede aksje fra før av i Portfolio: ");
-                        Console.WriteLine(portfolioss[0].Antall);
                         portfolioss[0].Antall += innPortfolio.Antall;
-                        Console.WriteLine(portfolioss[0].Antall);
                         await lagTransaksjon("Kjøp", id, portfolioss[0], innPortfolio.Antall);
                     }
                     else
                     {
-                        Console.WriteLine("Bruker får ny aksje i Portfolio: ");
                         var nyPortfolio = new Portfolios();
                         nyPortfolio.Antall = innPortfolio.Antall;
                         nyPortfolio.Aksje = enAksje;
@@ -176,23 +172,14 @@ namespace AksjeApp1.DAL
                         _db.Portfolios.Add(nyPortfolio);
                         await lagTransaksjon("Kjøp", id, nyPortfolio, innPortfolio.Antall);
                     }
-                    Console.WriteLine("Saldo før oppdatering: " + enBruker.Saldo);
                     enBruker.Saldo -= enAksje.Pris * innPortfolio.Antall;
-                    Console.WriteLine("Saldo etter oppdatering: " + enBruker.Saldo);
-
-                    Console.WriteLine("Antall Ledige før oppdatering: " + enAksje.AntallLedige);
                     enAksje.AntallLedige -= innPortfolio.Antall;
-                    Console.WriteLine("Antall Ledige etter oppdatering: " + enAksje.AntallLedige);
 
                     await _db.SaveChangesAsync();
-                    Console.WriteLine("Det funka, og du har råd");
                     return true;
                 }
-                Console.WriteLine("Det funka, og du har IKKE råd, eller du kan ikke kjøpe så mange aksjer.");
                 return false;
-
             }
-
             catch
             {
                 Console.WriteLine("Noe gikk galt");
