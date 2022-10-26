@@ -32,8 +32,3 @@ function formaterAksjer(aksjer) {
     ut += "</table>";
     $("#aksjer").html(ut);
 }
-
-
-
-
-
