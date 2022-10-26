@@ -10,6 +10,7 @@ function hentAllInfo() {
         $("#aksjeNavn").html("Aksjenavn - <b>" + aksje.navn + "</b>");
         $("#aksjePris").html("Pris per Aksje - <b>" + aksje.pris + "</b>");
         $("#aksjeLedigeMax").html("Aksjer Ledige/Max - <b>" + aksje.antallLedige + "</b>/<b>" + aksje.maxAntall + "</b>");
+        $("#sumForKjop").html("Total sum for kjøp: " + aksje.pris * $("#antallAksjer").val());
     });
 
     $.get("Aksje/HentEnBruker", function (bruker) {
@@ -17,6 +18,10 @@ function hentAllInfo() {
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
         $("#brukerSaldo").html("Saldo: <b>" + bruker.saldo + "</b> NOK");
     });
+}
+
+function oppdaterSum() {
+    hentAllInfo();
 }
 
 function bekreftKjop() {

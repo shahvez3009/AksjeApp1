@@ -80,8 +80,8 @@
                     </div>
                     <div class="col">
                         <div class="form-group bekreft">
-                            <input type="text" id="antallAksjer" placeholder="Må være et helt tall" />
-                            <label id="sumForKjop">Total sum for kjøp:</label>
+                            <input type="text" id="antallAksjer" placeholder="Må være et helt tall" onchange="oppdaterSum()"/>
+                            <p id="sumForKjop">Total sum for kjøp:</p>
                             <input type="button" id="reg" value="Bekreft" onClick="bekreftKjop()" class="btn btn-primary" />
                             <div class="kjop_bekreft_tekst"></div>
                             <div id="bekreft_ordre"><a href="portfolio.html">Se porteføljen din</a></div>
