@@ -9,8 +9,9 @@ function hentAllInfo() {
 
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
-        $("#portfolioEier").html(bruker.fornavn + " (" + bruker.saldo + " NOK) " + bruker.etternavn + " - Portfolio");
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
+        $("#portfolioEier").html(bruker.fornavn + " " + bruker.etternavn + " - Portfolio");
+        $("#brukerSaldo").html("Saldo: " + bruker.saldo + " NOK");
     });
 }
 

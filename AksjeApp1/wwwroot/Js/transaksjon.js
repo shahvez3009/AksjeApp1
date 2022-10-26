@@ -9,15 +9,16 @@ function hentAllInfo() {
 
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
-        $("#transaksjonEier").html(bruker.fornavn + " " + bruker.etternavn + " - Transaksjons Historikk");
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
+        $("#transaksjonEier").html(bruker.fornavn + " " + bruker.etternavn + " - Transaksjoner");
+        $("#brukerSaldo").html("Saldo: " + bruker.saldo + " NOK");
     });
 }
 
 function formaterTransaksjon(transaksjoner) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Transaksjons type</th><th>Dato/Tid</th><th>Aksje</th><th>Pris Per Aksje</th><th>Antall Aksjer</th>><th>Sum</th>" +
+        "<th>Transaksjons type</th><th>Dato/Tid</th><th>Aksje</th><th>Pris Per Aksje</th><th>Antall Aksjer</th><th>Sum</th>" +
         "</tr>";
     for (let transaksjon of transaksjoner) {
         ut += "<tr>" +

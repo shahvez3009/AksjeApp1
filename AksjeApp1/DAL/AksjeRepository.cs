@@ -25,7 +25,7 @@ namespace AksjeApp1.DAL
             try
             {
                 var nyTransaksjon = new Transaksjoner();
-                nyTransaksjon.Status = "Salg";
+                nyTransaksjon.Status = status;
                 DateTime datoTid = DateTime.Now;
                 nyTransaksjon.DatoTid = datoTid.ToString();
                 nyTransaksjon.Antall = antall;
@@ -50,7 +50,7 @@ namespace AksjeApp1.DAL
                 Portfolios[] etPortfolioRad = _db.Portfolios.Where(p => p.Aksje.Id == id).ToArray();
 
                 // Sjekker om antallet brukeren prøver å selge er mindre enn det brukeren eier. Hvis dette er sann vil den utføre transaksjonen
-                if (etPortfolioRad[0].Antall > innPortfolio.Antall)
+                if (etPortfolioRad[0].Antall > innPortfolio.Antall && innPortfolio.Antall != 0)
                 {
                     // Legger til Saldo for brukeren fra salget
                     etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
@@ -63,7 +63,7 @@ namespace AksjeApp1.DAL
                     return true;
                 }
                 // Sjekker om brukeren vil selge alle aksjene den eier. Hvis dette er sann vil den slette aksje beholdningen fra portføljen.
-                if (etPortfolioRad[0].Antall == innPortfolio.Antall)
+                if (etPortfolioRad[0].Antall == innPortfolio.Antall && innPortfolio.Antall != 0)
                 {
                     //Legger til Saldo for brukeren fra salget
                     etPortfolioRad[0].Bruker.Saldo += innPortfolio.Antall * etPortfolioRad[0].Aksje.Pris;
@@ -97,7 +97,7 @@ namespace AksjeApp1.DAL
                 Portfolios[] portfolioss = _db.Portfolios.Where(p => p.Aksje.Id == id && p.Bruker.Id == 1).ToArray();
                 Brukere enBruker = await _db.Brukere.FindAsync(1);
                 Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-                if (enBruker.Saldo >= enAksje.Pris * innPortfolio.Antall && enAksje.AntallLedige >= innPortfolio.Antall)
+                if (enBruker.Saldo >= enAksje.Pris * innPortfolio.Antall && enAksje.AntallLedige >= innPortfolio.Antall && innPortfolio.Antall >= 1)
                 {
                     if (portfolioss.Length == 1)
                     {

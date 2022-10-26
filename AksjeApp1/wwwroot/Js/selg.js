@@ -7,41 +7,37 @@ function hentAllInfo() {
 
     $.get("Aksje/HentEnAksje?" + aksjeid, function (aksje) {
         $("#aksjeId").val(aksje.id);
-        $("#aksjeNavn").html(aksje.navn);
-        $(".aksje_navn").html(aksje.navn);
-        $("#aksjePris").html(aksje.pris);
+        $("#aksjeNavn").html("Aksjenavn - <b>" + aksje.navn + "</b>");
+        $("#aksjePris").html("Pris per Aksje - <b>" + aksje.pris + "</b>");
     });
 
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
-        $("#brukerSaldo").html("Saldo: " + bruker.saldo + " NOK");
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
+        $("#brukerSaldo").html("Saldo: <b>" + bruker.saldo + "</b> NOK");
     });
 
     $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
         $("#portfolioId").val(portfolio.id);
-        $("#portfolioAntall").html(portfolio.antall);
-        $("#portfolioAksjeId").val(portfolio.aksjeId);
-        $("#portfolioAksjeNavn").val(portfolio.aksjeNavn);
-        $("#portfolioAksjePris").val(portfolio.aksjePris);
-        $("#portfolioBrukerId").val(portfolio.brukerId);
+        $("#portfolioAntall").html("Antall " + portfolio.aksjeNavn + " aksjer i portefølje - <b>" + portfolio.antall + "</b>");
     });
 }
 
 function bekreftSalg() {
     const portfolio = {
-        antall: $("#antall").val(),
+        antall: $("#antallAksjer").val(),
     };
 
     const id = window.location.search.substring(1);
 
     $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
-        if ((id, portfolio)) {
-            console.log("Det gikk bra kompis");
+        if (id, portfolio) {
+            $("#antallAksjer").val(null);
             hentAllInfo();
+            console.log("Det gikk bra kompis. Jeg er i JS");
         }
         else {
-            console.log("Du gjorde noe feil as");
+            console.log("Du gjorde noe feil as. Jeg er i JS");
         }
     });
 }
