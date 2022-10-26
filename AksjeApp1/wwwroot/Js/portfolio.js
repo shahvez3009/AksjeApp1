@@ -1,15 +1,15 @@
 ﻿$(function () {
-    hentHelePortfolio();
+    hentAllInfo();
 });
 
-function hentHelePortfolio() {
+function hentAllInfo() {
     $.get("Aksje/HentPortfolio", function (portfolios) {
         formaterPortfolio(portfolios);
     });
 
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
-        $("#portfolioEier").html(bruker.fornavn + " " + bruker.etternavn + " - Portfolio");
+        $("#portfolioEier").html(bruker.fornavn + " (" + bruker.saldo + " NOK) " + bruker.etternavn + " - Portfolio");
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
     });
 }

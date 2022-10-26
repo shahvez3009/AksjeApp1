@@ -15,5 +15,6 @@ namespace AksjeApp1.DAL
         Task<Portfolio> HentEtPortfolioRad(int id);
         Task<List<Aksje>> HentAksjene();
         Task<List<Portfolio>> HentPortfolio();
+        Task<List<Transaksjon>> HentTransaksjon();
     }
 }

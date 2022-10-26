@@ -68,5 +68,10 @@ namespace AksjeApp1.Controllers
         {
             return await _db.HentPortfolio();
         }
+
+        public async Task<List<Transaksjon>> HentTransaksjon()
+        {
+            return await _db.HentTransaksjon();
+        }
     }
 }

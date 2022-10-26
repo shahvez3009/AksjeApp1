@@ -19,8 +19,27 @@ namespace AksjeApp1.DAL
             _db = db;
         }
 
-
-
+        // denne funksjonen calles på av kjøp og selg funksjonene
+        public async Task<bool> lagTransaksjon(string status, int id, Portfolios portfolio, int antall)
+        {
+            try
+            {
+                var nyTransaksjon = new Transaksjoner();
+                nyTransaksjon.Status = "Salg";
+                DateTime datoTid = DateTime.Now;
+                nyTransaksjon.DatoTid = datoTid.ToString();
+                nyTransaksjon.Antall = antall;
+                nyTransaksjon.Aksje = portfolio.Aksje;
+                nyTransaksjon.Bruker = portfolio.Bruker;
+                _db.Transaksjoner.Add(nyTransaksjon);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         // Denne funksjonen vil kjøres når brukeren selger aksjer fra portføljen
         public async Task<bool> Selg(int id, Portfolios innPortfolio)
@@ -39,8 +58,8 @@ namespace AksjeApp1.DAL
                     etPortfolioRad[0].Antall -= innPortfolio.Antall;
                     //Antall ledige aksjer tilgjengelig på markedet vil øke med antallet solgt
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
-                    // Lagrer endringene til databasen
-                    await _db.SaveChangesAsync();
+                   
+                    await lagTransaksjon("Salg", id, etPortfolioRad[0], innPortfolio.Antall);
                     return true;
                 }
                 // Sjekker om brukeren vil selge alle aksjene den eier. Hvis dette er sann vil den slette aksje beholdningen fra portføljen.
@@ -52,10 +71,11 @@ namespace AksjeApp1.DAL
                     etPortfolioRad[0].Aksje.AntallLedige += innPortfolio.Antall;
                     // Slette beholdningen fra databasen ettersom alt er solgt.
                     _db.Remove(etPortfolioRad[0]);
-                    //Lagrer endringene til databasen
-                    await _db.SaveChangesAsync();
+                  
+                    await lagTransaksjon("Salg", id, etPortfolioRad[0], innPortfolio.Antall);
                     return true;
                 }
+                
                 Console.WriteLine("Jeg er i else");
                 return false;
             }
@@ -85,7 +105,7 @@ namespace AksjeApp1.DAL
                         Console.WriteLine(portfolioss[0].Antall);
                         portfolioss[0].Antall += innPortfolio.Antall;
                         Console.WriteLine(portfolioss[0].Antall);
-
+                        await lagTransaksjon("Kjøp", id, portfolioss[0], innPortfolio.Antall);
                     }
                     else
                     {
@@ -95,6 +115,7 @@ namespace AksjeApp1.DAL
                         nyPortfolio.Aksje = enAksje;
                         nyPortfolio.Bruker = enBruker;
                         _db.Portfolios.Add(nyPortfolio);
+                        await lagTransaksjon("Kjøp", id, nyPortfolio, innPortfolio.Antall);
                     }
                     Console.WriteLine("Saldo før oppdatering: " + enBruker.Saldo);
                     enBruker.Saldo -= enAksje.Pris * innPortfolio.Antall;
@@ -200,6 +221,29 @@ namespace AksjeApp1.DAL
                     BrukerId = p.Bruker.Id
                 }).ToListAsync();
                 return helePortfolio;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Transaksjon>> HentTransaksjon()
+        {
+            try
+            {
+                List<Transaksjon> heleTransaksjon = await _db.Transaksjoner.Select(p => new Transaksjon
+                {
+                    Id = p.Id,
+                    Status = p.Status,
+                    DatoTid = p.DatoTid,
+                    Antall = p.Antall,
+                    AksjeId = p.Aksje.Id,
+                    AksjeNavn = p.Aksje.Navn,
+                    AksjePris = p.Aksje.Pris,
+                    BrukerId = p.Bruker.Id
+                }).ToListAsync();
+                return heleTransaksjon;
             }
             catch
             {

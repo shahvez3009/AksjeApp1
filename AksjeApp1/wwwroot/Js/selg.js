@@ -38,6 +38,7 @@ function bekreftSalg() {
     $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
         if ((id, portfolio)) {
             console.log("Det gikk bra kompis");
+            hentAllInfo();
         }
         else {
             console.log("Du gjorde noe feil as");

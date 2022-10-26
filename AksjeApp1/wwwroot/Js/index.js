@@ -1,8 +1,8 @@
 ﻿$(function () {
-    hentAlleAksjer();
+    hentAllInfo();
 });
 
-function hentAlleAksjer() {
+function hentAllInfo() {
     $.get("Aksje/HentAksjene", function (aksjer) {
         formaterAksjer(aksjer);
     });
