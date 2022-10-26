@@ -1,4 +1,40 @@
-﻿
+﻿/*function endreChart(int i) {
+    const labels = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"];
+
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: "stock",
+                backgroundColor: "rgb(1, 29, 156)",
+                borderColor: "rgb(1, 29, 156)",
+                data: [i],
+            },
+        ],
+    };
+
+    const config = {
+        type: "line",
+        data: data,
+        options: {},
+    };
+
+    const myChart = new Chart(document.querySelector(".dashboard"), config);
+
+
+}
 const labels = [
     "January",
     "February",
@@ -12,6 +48,8 @@ const labels = [
     "October",
     "November",
     "December"];
+const 1 = [10, 50, 25, 23, 46, 32, 45, 5, 11, 8, 77, 12];
+const 2 = 
 
 //Tenkte at vi kan lage forskjellige data objekter for hver aksje. Så Finner vi ut hvilken aksje som kom via knappen, og skriver den
 //inn i config objectet.
@@ -24,7 +62,7 @@ const data = {
             label: "stock",
             backgroundColor: "rgb(1, 29, 156)",
             borderColor: "rgb(1, 29, 156)",
-            data: [100, 50, 25, 23, 46, 32, 45, 5, 11, 8, 77, 12],
+            data: [i],
         },
     ],
 };
@@ -142,3 +180,4 @@ const myChart = new Chart(document.querySelector(".dashboard"), config);
 
 
 
+*/
