@@ -6,7 +6,6 @@ function hentAllInfo() {
     $.get("Aksje/HentPortfolio", function (portfolios) {
         formaterPortfolio(portfolios);
     });
-
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);

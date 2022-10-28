@@ -15,7 +15,6 @@ function hentAllInfo() {
         $("#aksjeLedigeMax").html("Aksjer Ledige/Max - <b>" + aksje.antallLedige + "</b>/<b>" + aksje.maxAntall + "</b>");
         $("#sumForKjop").html("Total sum for kjøp: " + aksje.pris * $("#antallAksjer").val());
     });
-
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
@@ -42,7 +41,6 @@ function bekreftKjop() {
         feil.innerText = "Antallet ditt overskrider tilgjengelig beholdning";
     }
     
-
     const portfolio = {
         antall: $("#antallAksjer").val()
     }

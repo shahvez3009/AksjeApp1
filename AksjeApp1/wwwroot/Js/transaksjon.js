@@ -4,10 +4,8 @@
 
 function hentAllInfo() {
     $.get("Aksje/HentTransaksjoner", function (transaksjoner) {
-        formaterTransaksjon(transaksjoner);
-       
+        formaterTransaksjon(transaksjoner);   
     });
-
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
         $(".innloggetBruker").html(bruker.fornavn + " " + bruker.etternavn);
