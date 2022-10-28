@@ -2,7 +2,7 @@
     hentAllInfo();
 });
 
-let aksjeState; 
+let aksjeAntall; 
 
 function hentAllInfo() {
     const aksjeid = window.location.search.substring(1);
@@ -11,6 +11,7 @@ function hentAllInfo() {
         $("#aksjeId").val(aksje.id);
         $("#aksjeNavn").html("Aksjenavn - <b>" + aksje.navn + "</b>");
         $("#aksjePris").html("Pris per Aksje - <b>" + aksje.pris + "</b>");
+        $("#sumForKjop").html("Total sum for salg: " + aksje.pris * $("#antallAksjer").val());
     });
     $.get("Aksje/HentEnBruker", function (bruker) {
         $("#brukerId").val(bruker.id);
@@ -18,14 +19,16 @@ function hentAllInfo() {
         $("#brukerSaldo").html("Saldo: <b>" + bruker.saldo + "</b> NOK");
     });
     $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
-        aksjeState = portfolio;
+        aksjeAntall = portfolio;
         $("#portfolioId").val(portfolio.id);
         $("#portfolioAntall").html("Antall " + portfolio.aksjeNavn + " aksjer i portefølje - <b>" + portfolio.antall + "</b>");
     });
 }
 
-function fjernFeil() {
-    const feil = document.getElementById("feil"); 
+function oppdater() {
+    hentAllInfo();
+
+    const feil = document.getElementById("feil");
     feil.innerHTML = "";
 }
 
@@ -33,7 +36,7 @@ function bekreftSalg() {
 
     const feil = document.getElementById("feil");
     const antallAksjer = $("#antallAksjer").val();
-    const portfolioAntall = aksjeState.antall;
+    const portfolioAntall = aksjeAntall.antall;
 
     if (antallAksjer > portfolioAntall) {
         feil.innerText = "Antallet ditt overskrider tilgjengelig beholdning";
@@ -49,10 +52,10 @@ function bekreftSalg() {
         if (id, portfolio) {
             $("#antallAksjer").val(null);
             hentAllInfo();
-            console.log("Det gikk bra kompis. Jeg er i JS");
+            console.log("Salget ble gjennomført!");
         }
         else {
-            console.log("Du gjorde noe feil as. Jeg er i JS");
+            console.log("Error");
         }
     });
 }

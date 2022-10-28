@@ -60,7 +60,7 @@
 				</div>
 				<div class="row">
 					<div class="col text-center">
-						<h2>AKSJE INFO</h2>
+						<h2>AKSJEINFO</h2>
 						<ul class="list-group list-group-flush form">
 							<li class="list-group-item form-item" id="aksjeNavn"></li>
 							<li class="list-group-item form-item" id="aksjePris"></li>
@@ -69,9 +69,10 @@
 					</div>
 					<div class="col">
 						<div class="form-group bekreft">
-							<input type="number" id="antallAksjer" oninput="fjernFeil()" />
-							<input type="button" id="reg" value="Bekreft" onClick="bekreftSalg()"
-								class="btn btn-primary" />
+							<p><b> Velg antall aksjer:</b></p>
+							<input type="number" id="antallAksjer" placeholder="Må være et helt tall" oninput="oppdater()" />
+							<p id="sumForKjop">Total sum for kjøp:</p>
+							<input type="button" id="reg" value="Bekreft" onClick="bekreftSalg()" class="btn btn-primary" />
 							<div id="feil" style="color: red"></div>
 							<div class="selg_bekreft_tekst"></div>
 							<div id="bekreft_ordre">

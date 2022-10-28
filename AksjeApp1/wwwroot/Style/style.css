@@ -7,7 +7,6 @@
 body {
 }
 
-
 main {
     width: 100%;
     display: flex;
@@ -122,9 +121,3 @@ section {
    height: 80vh;
    width: 100%; 
 }
-
-/*
-    antall ledige >= antall som skal kjøpes
-
-
-*/
