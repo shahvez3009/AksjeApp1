@@ -57,9 +57,8 @@ function endreChart(navn, i) {
             datasets: [
                 {
                     label: "Microsoft",
-                    // backgroundColor: "rgb(1,29,156)",
                     borderColor: "rgb(0,255,0)",
-                    data: [90, 40, 15, 5, 25, 35, 25, 5, 15, 80, 10, 300]
+                    data: [190, 200, 210,205, 190, 220, 245, 270, 290, 223, 250, 300]
                 }
             ]
         },
@@ -68,9 +67,8 @@ function endreChart(navn, i) {
             datasets: [
                 {
                     label: "Apple",
-                    // backgroundColor: "rgb(1,29,156)",
                     borderColor: "rgb(220,20,60)",
-                    data: [90, 100, 15, 5, 45, 35, 25, 5, 15, 80, 20, 500]
+                    data: [90, 100, 120, 95, 150, 230, 280, 300, 45, 470, 510, 500]
                 }
             ]
         }, {
@@ -78,9 +76,8 @@ function endreChart(navn, i) {
             datasets: [
                 {
                     label: "Blizzard",
-                    //backgroundColor: "rgb(1,29,156)",
                     borderColor: "rgb(1,29,156)",
-                    data: [90, 100, 15, 5, 25, 35, 25, 25, 35, 80, 10, 150]
+                    data: [90, 100, 120, 130, 90, 75, 110, 130, 135, 140, 145, 150]
                 }
             ]
         },
@@ -89,9 +86,8 @@ function endreChart(navn, i) {
             datasets: [
                 {
                     label: "Google",
-                    //backgroundColor: "rgb(1,29,156)",
                     borderColor: "rgb(1,29,156)",
-                    data: [90, 90, 15, 5, 25, 35, 25, 15, 15, 80, 10, 12]
+                    data: [90, 90, 100, 105, 110, 115, 125, 115, 115, 120, 130, 130]
                 }
             ]
         },
@@ -100,9 +96,8 @@ function endreChart(navn, i) {
             datasets: [
                 {
                     label: "Netflix",
-                    //backgroundColor: "rgb(1,29,156)",
                     borderColor: "rgb(1,29,156)",
-                    data: [90, 100, 25, 5, 25, 35, 25, 5, 25, 80, 20, 12]
+                    data: [10, 19, 25, 30, 25, 35, 25, 5, 25, 80, 20, 12]
                 }
             ]
         },
