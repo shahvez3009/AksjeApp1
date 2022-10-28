@@ -12,13 +12,6 @@ namespace AksjeApp1.Models
             {
                 var context = serviceScope.ServiceProvider.GetService<AksjeContext>();
 
-                /*var client = new RestClient("https://api.polygon.io/v1/open-close/AAPL/2020-10-14?adjusted=true&apiKey=ZEiSOvpQCiinfLiWOiJhnyeJmGdrIUpF");
-                var request = new RestRequest("", (Method)DataFormat.Json);
-                var response = client.Get(request);
-                Console.WriteLine(response.Content);
-                Console.Read();
-                */
-
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
