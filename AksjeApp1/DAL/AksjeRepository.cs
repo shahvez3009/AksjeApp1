@@ -218,22 +218,41 @@ namespace AksjeApp1.DAL
 
         public async Task<Portfolio> HentEtPortfolioRad(int id)
         {
-            Portfolios etPortfolioRad = _db.Portfolios.First(p => p.Aksje.Id == id);
-            Brukere enBruker = await _db.Brukere.FindAsync(1);
-            Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-            var hentetPortfolioRad = new Portfolio()
+            try
             {
-                Id = etPortfolioRad.Id,
-                Antall = etPortfolioRad.Antall,
-                AksjeId = enAksje.Id,
-                AksjeNavn = enAksje.Navn,
-                AksjePris = enAksje.Pris,
-                BrukerId = enBruker.Id
-            };
-            return hentetPortfolioRad;
+                Portfolios etPortfolioRad = _db.Portfolios.First(p => p.Aksje.Id == id);
+                Brukere enBruker = await _db.Brukere.FindAsync(1);
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+                var hentetPortfolioRad = new Portfolio()
+                {
+                    Id = etPortfolioRad.Id,
+                    Antall = etPortfolioRad.Antall,
+                    AksjeId = enAksje.Id,
+                    AksjeNavn = enAksje.Navn,
+                    AksjePris = enAksje.Pris,
+                    BrukerId = enBruker.Id
+                };
+                return hentetPortfolioRad;
+            }
+            catch
+            {
+                Brukere enBruker = await _db.Brukere.FindAsync(1);
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+
+                var nyPortfolioRad = new Portfolio()
+                {
+                    Id = 999999,
+                    Antall = 0,
+                    AksjeId = enAksje.Id,
+                    AksjeNavn = enAksje.Navn,
+                    AksjePris = enAksje.Pris,
+                    BrukerId = enBruker.Id
+                };
+                return nyPortfolioRad;
+            }
         }
 
-        public async Task<List<Aksje>> HentAksjene()
+        public async Task<List<Aksje>> HentAksjer()
         {
             try
             {
@@ -274,7 +293,7 @@ namespace AksjeApp1.DAL
             }
         }
 
-        public async Task<List<Transaksjon>> HentTransaksjon()
+        public async Task<List<Transaksjon>> HentTransaksjoner()
         {
             try
             {

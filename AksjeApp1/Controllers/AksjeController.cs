@@ -52,9 +52,9 @@ namespace AksjeApp1.Controllers
         }
         
 
-        public async Task<List<Aksje>> HentAksjene()
+        public async Task<List<Aksje>> HentAksjer()
         {
-            return await _db.HentAksjene();
+            return await _db.HentAksjer();
         }
 
         public async Task<List<Portfolio>> HentPortfolio()
@@ -62,9 +62,9 @@ namespace AksjeApp1.Controllers
             return await _db.HentPortfolio();
         }
 
-        public async Task<List<Transaksjon>> HentTransaksjon()
+        public async Task<List<Transaksjon>> HentTransaksjoner()
         {
-            return await _db.HentTransaksjon();
+            return await _db.HentTransaksjoner();
         }
     }
 }

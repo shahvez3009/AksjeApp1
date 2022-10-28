@@ -1,15 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>JustInvest</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="Js/kjop.js"></script>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
 
     <!--- Dette er tor sin bootstrap-->
@@ -18,10 +17,10 @@
     <link rel="stylesheet" href="Style/kjop.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
-          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/logoX.png" />
 </head>
+
 <body>
     <main>
         <section class="left-bar">
@@ -43,9 +42,7 @@
             </div>
             <div class="left-container">
                 <div class="profile">
-                    <img id="profile_img"
-                         src="Images/Ellipse 3.png"
-                         alt="profile_image" />
+                    <img id="profile_img" src="Images/Ellipse 3.png" alt="profile_image" />
                     <p class="innloggetBruker"></p>
                 </div>
             </div>
@@ -75,19 +72,21 @@
                     </div>
                     <div class="col">
                         <div class="form-group bekreft">
-                            <input type="number" id="antallAksjer" placeholder="Må være et helt tall" onchange="oppdaterSum()" oninput="fjernFeil()" />
+                            <input type="number" id="antallAksjer" placeholder="Må være et helt tall"
+                                onchange="oppdaterSum()" oninput="fjernFeil()" />
                             <p id="sumForKjop">Total sum for kjøp:</p>
-                            <input type="button" id="reg" value="Bekreft" onClick="bekreftKjop()" class="btn btn-primary" />
+                            <input type="button" id="reg" value="Bekreft" onClick="bekreftKjop()"
+                                class="btn btn-primary" />
                             <div class="kjop_bekreft_tekst"></div>
                             <div id="feil" style="color: red"></div>
                             <div id="bekreft_ordre"><a id="link_bekreft_ordre" href="portfolio.html">Se porteføljen din</a></div>
-
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </section>
     </main>
 </body>
+
 </html>

@@ -3,7 +3,7 @@
 });
 
 function hentAllInfo() {
-    $.get("Aksje/HentTransaksjon", function (transaksjoner) {
+    $.get("Aksje/HentTransaksjoner", function (transaksjoner) {
         formaterTransaksjon(transaksjoner);
        
     });

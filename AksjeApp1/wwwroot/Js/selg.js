@@ -20,7 +20,7 @@ function hentAllInfo() {
     });
 
     $.get("Aksje/HentEtPortfolioRad?" + aksjeid, function (portfolio) {
-        aksjeState = portfolio; 
+        aksjeState = portfolio;
         $("#portfolioId").val(portfolio.id);
         $("#portfolioAntall").html("Antall " + portfolio.aksjeNavn + " aksjer i portefølje - <b>" + portfolio.antall + "</b>");
     });
@@ -48,6 +48,7 @@ function bekreftSalg() {
     };
 
     const id = window.location.search.substring(1);
+
 
     $.post("Aksje/selg?" + id, (id, portfolio), function (id, portfolio) {
         if (id, portfolio) {
